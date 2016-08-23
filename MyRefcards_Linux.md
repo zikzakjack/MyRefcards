@@ -1,42 +1,44 @@
 # Linux Commands Quick Reference
 
-**date** - Display the system date and time
+**date** : Display the system date and time
 
-**cal** - Displays a calendar
+**cal** : Displays a calendar
 
-**df** - Report file system disk space usage
+**df** : Report file system disk space usage
 
-**free** - Display amount of free and used memory in the system
+**free** : Display amount of free and used memory in the system
 
-**exit** - End a terminal session
+**exit** : End a terminal session
 
 ## Navigation Commands
 
-**pwd** - Print working directory
+**pwd** : Print working directory
 
-**cd directory_name** - Change to the specified directory **directory_name**
+**cd directory_name** : Change to the specified directory **directory_name**
 
-**cd** - Changes the working directory to your home directory
+**cd** : Changes the working directory to your home directory
   
-**cd -** - Changes the working directory to the previous working directory
+**cd -** : Changes the working directory to the previous working directory
 
-**cd ~user_name** - Changes the working directory to the home directory of user_name
+**cd ~user_name** : Changes the working directory to the home directory of user_name
 
 ## Exploring The System
 
-**file** - Determine file type
+**file** : Determine file type
 
 **less** – View file contents
 
-**ls** - List files and subdirectories contained in the current working directory
+***
 
-**ls directory_name** - List files and subdirectories contained in the specified **directory_name**
+**ls** : List files and subdirectories contained in the current working directory
 
-**ls -l** - List files and subdirectories in long format
+**ls directory_name** : List files and subdirectories contained in the specified **directory_name**
 
-**ls -lt** - List files and subdirectories in long format and sort the result by the file's modification time
+**ls -l** : List files and subdirectories in long format
 
-**ls -lt** - List files and subdirectories in long format and sort the result by the file's modification time in reverse order
+**ls -lt** : List files and subdirectories in long format and sort the result by the file's modification time
+
+**ls -lt** : List files and subdirectories in long format and sort the result by the file's modification time in reverse order
 
 
 ***
