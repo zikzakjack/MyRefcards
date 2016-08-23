@@ -22,6 +22,22 @@
 
 **cd ~user_name** - Changes the working directory to the home directory of user_name
 
+## Exploring The System
+
+**file** - Determine file type
+
+**less** – View file contents
+
+**ls** - List files and subdirectories contained in the current working directory
+
+**ls <directory_name>** - List files and subdirectories contained in the specified <directory_name>
+
+**ls -l** - List files and subdirectories in long format
+
+**ls -lt** - List files and subdirectories in long format and sort the result by the file's modification time
+
+**ls -lt** - List files and subdirectories in long format and sort the result by the file's modification time in reverse order
+
 
 ***
 I am reading : The Linux Command Line by William E. Shotts, Jr.
