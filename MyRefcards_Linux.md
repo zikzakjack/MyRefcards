@@ -26,7 +26,7 @@
 
 **file** : Determine file type
 
-**less** – View file contents
+**less** : View file contents
 
 ***
 
@@ -34,11 +34,21 @@
 
 **ls directory_name** : List files and subdirectories contained in the specified **directory_name**
 
-**ls -l** : List files and subdirectories in long format
+**ls -l** : List directory contents in long format
 
-**ls -lt** : List files and subdirectories in long format and sort the result by the file's modification time
+**ls -lt** : List directory contents in long format and sort the result by the file's modification time
 
-**ls -lt** : List files and subdirectories in long format and sort the result by the file's modification time in reverse order
+**ls -lt** : List directory contents in long format and sort the result by the file's modification time in reverse order
+
+**ls -ld */** : list directory in long format with directories only
+
+**ls -lF** : list directory in long format, append an indicator character to the end of each listed name. For example, a “/” if the name is a directory.
+
+**ls -lh** : list directory in long format, display file sizes in human readable format rather than in bytes.
+
+**ls -lhS** : list directory in long format, sort by file size
+
+**ls -lhSr** : list directory in long format, sort by file size in reverse order
 
 
 ***
