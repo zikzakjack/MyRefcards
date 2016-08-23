@@ -14,7 +14,7 @@
 
 **pwd** - Print working directory
 
-**cd <directory_name>** - Change to the specified directory <directory_name>
+**cd directory_name** - Change to the specified directory **directory_name**
 
 **cd** - Changes the working directory to your home directory
   
@@ -30,7 +30,7 @@
 
 **ls** - List files and subdirectories contained in the current working directory
 
-**ls <directory_name>** - List files and subdirectories contained in the specified <directory_name>
+**ls directory_name** - List files and subdirectories contained in the specified **directory_name**
 
 **ls -l** - List files and subdirectories in long format
 
