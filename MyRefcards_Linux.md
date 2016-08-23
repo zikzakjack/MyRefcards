@@ -6,5 +6,5 @@
 
 
 ---
-# I am reading : The Linux Command Line by William E. Shotts, Jr.
+I am reading : The Linux Command Line by William E. Shotts, Jr.
 ---
