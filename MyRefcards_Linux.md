@@ -75,15 +75,17 @@
 
 ## Manipulating Files And Directories
 
-**cp** : Copy files and directories
 
 **mv** : Move/rename files and directories
 
-**mkdir** : Create directories
 
 **rm** : Remove files and directories
 
 **ln** : Create hard and symbolic links
+
+***
+
+**mkdir** : Create directories
 
 ***
 
@@ -95,6 +97,24 @@
 
 **mkdir -p letscodeit/zikzak_dir_06/data/in** : Make entire hierarchy of directories
 
+
+***
+
+**cp** : Copy files and directories
+
+***
+
+**cp item1 item2** : Copy the single file or directory “item1” to file or directory “item2”
+
+**cp file1 file2 file3 dir1** " Copy file1, file2, file3 into directory dir1
+
+**cp file1 file2** : Copy file1 to file2. If file2 exists, it is overwritten with the contents of file1. If file2 does not exist, it is created.
+
+**cp -i file1 file2** : Same as above, except that if file2 exists, the user is prompted before it is overwritten.
+
+**cp dir1/* dir2** : Using a wildcard, all the files in dir1 are copied into dir2. dir2 must already exist.
+
+**cp -r dir1 dir2** : Copy the contents of directory dir1 to directory dir2.
 
 ***
 I am reading : The Linux Command Line by William E. Shotts, Jr.
