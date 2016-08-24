@@ -76,9 +76,6 @@
 ## Manipulating Files And Directories
 
 
-**mv** : Move/rename files and directories
-
-
 **rm** : Remove files and directories
 
 **ln** : Create hard and symbolic links
@@ -115,6 +112,21 @@
 **cp dir1/* dir2** : Using a wildcard, all the files in dir1 are copied into dir2. dir2 must already exist.
 
 **cp -r dir1 dir2** : Copy the contents of directory dir1 to directory dir2.
+
+***
+
+**mv** : Move/rename files and directories
+
+***
+
+**mv file1 file2** : Rename file1 as file2. If file2 already exists, it will be overwritten
+
+**mv -i file1 file2** : Same as above, except that if file2 exists, the user is prompted before it is overwritten
+
+**mv file1 file2 dir1** : Move file1 and file2 into directory dir1. dir1 must already exist.
+
+**mv dir1 dir2** : Rename dir1 as dir2. If dir2 already exists, move dir1 into dir2
+
 
 ***
 I am reading : The Linux Command Line by William E. Shotts, Jr.
