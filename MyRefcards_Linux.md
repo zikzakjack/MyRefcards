@@ -24,9 +24,9 @@
 
 ## Exploring The System
 
-**file** : Determine file type
+**file file_name** : Determine file type of **file_name**
 
-**less** : View file contents
+**less file_name** : View contents of file **file_name** 
 
 ***
 
@@ -49,6 +49,29 @@
 **ls -lhS** : list directory in long format, sort by file size
 
 **ls -lhSr** : list directory in long format, sort by file size in reverse order
+
+**ls -l *** : list all the files
+
+**ls -l o*** : Any file beginning with "o"
+
+**ls -l t*.csv** : Any file beginning with “t” followed by any characters and ending with ".csv"
+
+**ls -l AIG_???.dat** : Any file beginning with “AIG_” followed by exactly three characters
+
+**ls -l [At3]*** : Any file beginning with either an “A”, “t”, or  “3”
+
+**ls -l AIG_[0-9][0-9][0-9].DAT** : 	Any file beginning with “AIG_” followed by exactly three numerals and ending with “.dat”
+
+**ls -l [[:upper:]]*** :  	Any file beginning with an uppercase letter
+
+**ls -l [![:digit:]]*** : Any file not beginning with a numeral
+
+**s -l [[:digit:]]*** :  Any file beginning with a numeral
+
+**ls -l *[[:lower:]0123]** :  	Any file ending with a lowercase letter or the numerals “0” or “1” or “2” or “3”
+
+
+***
 
 
 ***
