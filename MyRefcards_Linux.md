@@ -73,6 +73,28 @@
 
 ***
 
+## Manipulating Files And Directories
+
+**cp** : Copy files and directories
+
+**mv** : Move/rename files and directories
+
+**mkdir** : Create directories
+
+**rm** : Remove files and directories
+
+**ln** : Create hard and symbolic links
+
+***
+
+**mkdir zikzak_dir_01** : Make directory zikzak_dir_01
+
+**mkdir zikzak_dir_01 zikzak_dir_02 zikzak_dir_03** : Make multiple directories
+
+**mkdir -m 777 zikzak_dir_04** : Make directory and Set file permissions
+
+**mkdir -p letscodeit/zikzak_dir_06/data/in** : Make entire hierarchy of directories
+
 
 ***
 I am reading : The Linux Command Line by William E. Shotts, Jr.
