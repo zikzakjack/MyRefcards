@@ -76,7 +76,6 @@
 ## Manipulating Files And Directories
 
 
-**rm** : Remove files and directories
 
 **ln** : Create hard and symbolic links
 
@@ -127,6 +126,20 @@
 
 **mv dir1 dir2** : Rename dir1 as dir2. If dir2 already exists, move dir1 into dir2
 
+
+***
+
+**rm** : Remove files and directories
+
+***
+
+**rm file1** : Delete file1 
+
+**rm -i file1** : Delete file1 in interactive mode
+
+**rm -r file1 dir1** : Delete file1 and dir1 and its contents recursively
+
+**rm -rf file1 dir1** : Same as above, except that if either file1 or dir1 do not exist, rm will continue silently.
 
 ***
 I am reading : The Linux Command Line by William E. Shotts, Jr.
