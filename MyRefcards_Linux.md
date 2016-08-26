@@ -150,7 +150,7 @@
 
 Note :
 
-1. A hard link cannot reference a file outside its own file system.
+1. A hard link cannot reference a file outside its own file system. i.e., hard links cannot span physical devices
 
 2. A hard link may not reference a directory.
 
@@ -158,9 +158,11 @@ Note :
 
 4. If you write some something to the symbolic link, the referenced file is also written to
 
-5. When you delete a symbolic link, only the link is deleted, not the file itself
+5. In symbolic links most file operations are carried out on the link's target, not the link itself. rm is an exception.
 
-6. If the file is deleted before the symbolic link, the link will continue to exist, but will point to nothing
+6. When you delete a symbolic link, only the link is deleted, not the file itself
+
+7. If the file is deleted before the symbolic link, the link will continue to exist, but will point to nothing
 
 ***
 I am reading : The Linux Command Line by William E. Shotts, Jr.
