@@ -137,7 +137,7 @@ git fetch shortname
 
 git fetch origin
 
-git push [remote-name] [branch-name]
+git push remote_name branch_name
 
 git push origin master
 
