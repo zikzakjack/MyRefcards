@@ -165,5 +165,77 @@ Note :
 7. If the file is deleted before the symbolic link, the link will continue to exist, but will point to nothing
 
 ***
-I am reading : The Linux Command Line by William E. Shotts, Jr.
+
+## Working with Commands
+
+***
+
+**type** – Indicate how a command name is interpreted
+
+***
+
+Command can be one of the four different things. 
+
+1. An executable program
+
+2. A command built in to shell
+
+3. A shell function
+
+4. An alias
+
+
+The type command is a shell builtin that displays the kind of command the shell will execute, given a particular command name.
+
+
+$ **type cd**
+
+cd is a shell builtin
+
+$ **type alias**
+
+alias is a shell builtin
+
+$ **type ls**
+
+ls is /bin/ls
+
+***
+
+**which** – Display which executable program will be executed
+
+***
+
+$ **which ls**
+
+/bin/ls
+
+which only works for executable programs, not shell builtins not aliases
+
+***
+##### Getting A Command's Documentation
+***
+
+**help command_name** : Display the built-in help for the given command
+
+**man command_name** – Display a command's manual page
+
+**apropos search_term** – Display a list of appropriate commands whose man pages contain the **search_term**
+
+**info** – Display a command's info entry
+
+**whatis command_name** – Display a very brief description of a command
+
+***
+
+**alias alias_name='command_string'** – Create an alias **alias_name** for a command **command_string**
+
+**unalias alias_name** – Remove an alias **alias_name**
+
+**alias** : See all the alias defined in that environment
+
+***
+
+***
+**I am reading :** The Linux Command Line by William E. Shotts, Jr.
 ***
