@@ -76,9 +76,6 @@
 ## Manipulating Files And Directories
 
 
-
-**ln** : Create hard and symbolic links
-
 ***
 
 **mkdir** : Create directories
@@ -140,6 +137,30 @@
 **rm -r file1 dir1** : Delete file1 and dir1 and its contents recursively
 
 **rm -rf file1 dir1** : Same as above, except that if either file1 or dir1 do not exist, rm will continue silently.
+
+***
+
+**ln** : Create hard and symbolic links
+
+***
+
+**ln file link** : Create hard link
+
+**ln -s file link** : Create symbolic link
+
+Note :
+
+1. A hard link cannot reference a file outside its own file system.
+
+2. A hard link may not reference a directory.
+
+3. A symbolic link may reference a directory or a file.
+
+4. If you write some something to the symbolic link, the referenced file is also written to
+
+5. When you delete a symbolic link, only the link is deleted, not the file itself
+
+6. If the file is deleted before the symbolic link, the link will continue to exist, but will point to nothing
 
 ***
 I am reading : The Linux Command Line by William E. Shotts, Jr.
