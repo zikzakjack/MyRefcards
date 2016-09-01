@@ -239,6 +239,7 @@ which only works for executable programs, not shell builtins not aliases
 ## I/O Re-direction
 
 ***
+
 cat - Concatenate files
 
 sort - Sort lines of text
@@ -254,6 +255,34 @@ head - Output the first part of a file
 tail - Output the last part of a file
 
 tee - Read from standard input and write to standard output and files
+
+***
+
+	file descriptor for standard input stream : 0>
+
+	file descriptor for standard output stream : 1>
+
+	file descriptor for standard error stream : 2>
+
+Redirecting Standard Output to a File : ls -l /bin/usr > ls-output.txt (overwrites if the file is already present) 
+
+Redirecting Standard Output to a File : ls -l /bin/usr >> ls-output.txt (appends if the file is already present)
+
+Redirecting Standard Error to a File : ls -l /bin/usr 2> ls-error.txt (overwrites if the file is already present) 
+
+Redirecting Standard Error to a File : ls -l /bin/usr 2>> ls-error.txt (appends if the file is already present)
+
+Redirecting both Standard Output And Standard Error To One File example 1 : ls -l /bin/usr > ls-output.txt 2>&1
+
+- First we redirect standard output to the file ls-output.txt
+
+- then we redirect file descriptor two (standard error) to file descriptor one (standard output) using the notation 2>&1
+
+Redirecting both Standard Output And Standard Error To One File example 2 : ls -l /bin/usr &> ls-output.txt
+
+Suppressing error messages : ls -l /bin/usr 2> /dev/null
+
+Redirecting Standard Input from keyboard to File : cat < lazy_dog.txt
 
 ***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
