@@ -326,5 +326,27 @@ tee - Read from standard input and write to standard output and files
 **Single Quotes**: If we need to suppress all expansions, we use single quotes.
 
 ***
+
+## Permissions
+
+***
+
+**id** – Display user identity
+
+**chmod** – Change a file's mode
+
+**umask** – Set the default file permissions
+
+**su** – Run a shell as another user
+
+**sudo** – Execute a command as another user
+
+**chown** – Change a file's owner
+
+**chgrp** – Change a file's group ownership
+
+**passwd** – Change a user's password
+
+***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
 ***
