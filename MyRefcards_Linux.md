@@ -285,5 +285,46 @@ tee - Read from standard input and write to standard output and files
 **Redirecting Standard Input from keyboard to File :** cat < lazy_dog.txt
 
 ***
+
+## Command line interpretation at Shell
+
+***
+
+**Expansion** : With expansion, you type something and it is expanded into something else before the shell acts upon it
+
+**Pathname Expansion** : The mechanism by which wildcards work is called pathname expansion
+
+**Tilde Expansion** : When used at the beginning of a word, it expands into the home directory of current user
+
+**Arithmetic Expansion** : The shell allows arithmetic to be performed by expansion. e.g., echo $((2 + 2))
+
+**Brace Expansion** : you can create multiple text strings from a pattern containing braces
+
+	$ echo Front-{A,B,C}-Back
+	Front-A-Back Front-B-Back Front-C-Back
+	
+	$ echo Number_{1..5}
+	Number_1 Number_2 Number_3 Number_4 Number_5
+	
+	$ echo {Z..A}
+	Z Y X W V U T S R Q P O N M L K J I H G F E D C B A
+	
+**Parameter Expansion** : Shell will expand the variable in the Command line before the command execution.
+
+	$ echo $USER
+	zikzak
+
+**Command Substitution** : Command substitution allows us to use the output of a command as an expansion:
+
+	~]$ ls -l $(which cp)
+	-rwxr-xr-x 1 root root 71516 2007-12-05 08:58 /bin/cp
+
+**Quoting** : The shell provides a mechanism called quoting to selectively suppress unwanted expansions
+
+**Double Quotes** : all the special characters used by the shell lose their special meaning and are treated as ordinary characters. The exceptions are “$”, “\” (backslash), and “`” (backquote). This means that word-splitting, pathname expansion, tilde expansion, and brace expansion are suppressed, but parameter expansion, arithmetic expansion, and command substitution are still carried out.
+
+**Single Quotes**: If we need to suppress all expansions, we use single quotes.
+
+***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
 ***
