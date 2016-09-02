@@ -316,7 +316,7 @@ tee - Read from standard input and write to standard output and files
 
 **Command Substitution** : Command substitution allows us to use the output of a command as an expansion:
 
-	~]$ ls -l $(which cp)
+	$ ls -l $(which cp)
 	-rwxr-xr-x 1 root root 71516 2007-12-05 08:58 /bin/cp
 
 **Quoting** : The shell provides a mechanism called quoting to selectively suppress unwanted expansions
