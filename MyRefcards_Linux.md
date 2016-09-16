@@ -348,5 +348,28 @@ tee - Read from standard input and write to standard output and files
 **passwd** – Change a user's password
 
 ***
+
+## Processes
+
+***
+
+**ps** – Report a snapshot of current processes
+
+**top** – Display tasks
+
+**jobs** – List active jobs
+
+**bg** – Place a job in the background
+
+**fg** – Place a job in the foreground
+
+**kill** – Send a signal to a process
+
+**killall** – Kill processes by name
+
+**shutdown** – Shutdown or reboot the system
+
+
+***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
 ***
