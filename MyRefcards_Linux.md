@@ -390,11 +390,11 @@ tee - Read from standard input and write to standard output and files
 
 ***
 
-| Distributions | Low-Level Tools | High-Level Tools|
+**Distributions** - Fedora, RHEL, CentOS 
 
-| ------------- |:-------------:| -----:|
+**Low-Level Tools** - rpm
 
-| Fedora, Red Hat Enterprise Linux, CentOS | rpm | yum |
+**High-Level Tools** - yum
 
 
 ###Common Package Management Tasks
