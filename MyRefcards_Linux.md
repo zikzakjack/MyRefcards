@@ -369,6 +369,20 @@ tee - Read from standard input and write to standard output and files
 
 **shutdown** – Shutdown or reboot the system
 
+***
+
+## The Environment
+
+***
+
+**printenv** – Print part or all of the environment
+
+**set** – Set shell options
+
+**export** – Export environment to subsequently executed programs
+
+**alias** – Create an alias for a command
+
 
 ***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
