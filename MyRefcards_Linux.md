@@ -468,5 +468,21 @@ tee - Read from standard input and write to standard output and files
 **scp And sftp** - two programs that can make use of an SSH-encrypted tunnel to copy files across the network
 
 ***
+
+##Searching For Files
+
+***
+
+**locate** - Find files by name
+
+**find** - Search for files in a directory hierarchy
+
+**xargs** - Build and execute command lines from standard input
+
+**touch** - Change file times
+
+**stat** - Display file or file system status
+
+***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
 ***
