@@ -471,6 +471,7 @@ tee - Read from standard input and write to standard output and files
 
 ##Searching For Files
 
+
 ***
 
 **locate** - Find files by name
@@ -498,6 +499,36 @@ tee - Read from standard input and write to standard output and files
 **zip** - Package and compress files
 
 **rsync** - Remote file and directory synchronization
+
+***
+
+##Text Processing
+
+***
+
+**cat** – Concatenate files and print on the standard output
+
+**sort** – Sort lines of text files
+
+**uniq** – Report or omit repeated lines
+
+**cut** – Remove sections from each line of files
+
+**paste** – Merge lines of files
+
+**join** – Join lines of two files on a common field
+
+**comm** – Compare two sorted files line by line
+
+**diff** – Compare files line by line
+
+**patch** – Apply a diff file to an original
+
+**tr** – Translate or delete characters
+
+**sed** – Stream editor for filtering and transforming text
+
+**aspell** – Interactive spell checker
 
 ***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
