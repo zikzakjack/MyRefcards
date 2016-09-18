@@ -419,7 +419,32 @@ tee - Read from standard input and write to standard output and files
  
  **rpm -qf file_name** - Finding Which Package Installed A File
  
- 
+***
+
+## Storage Media
+
+***
+
+**mount** – Mount a file system
+
+**umount** – Unmount a file system
+
+**fsck** – Check and repair a file system
+
+**fdisk** – Partition table manipulator
+
+**mkfs** – Create a file system
+
+**fdformat** – Format a floppy disk
+
+**dd** – Write block oriented data directly to a device
+
+**genisoimage (mkisofs)** – Create an ISO 9660 image file
+
+**wodim (cdrecord)** – Write data to optical storage media
+
+**md5sum** – Calculate an MD5 checksum 
+
 ***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
 ***
