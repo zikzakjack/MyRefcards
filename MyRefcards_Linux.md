@@ -484,5 +484,21 @@ tee - Read from standard input and write to standard output and files
 **stat** - Display file or file system status
 
 ***
+
+##Archiving And Backup
+
+***
+
+**gzip** - Compress or expand files
+
+**bzip2** - A block sorting file compressor
+
+**tar** - Tape archiving utility
+
+**zip** - Package and compress files
+
+**rsync** - Remote file and directory synchronization
+
+***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
 ***
