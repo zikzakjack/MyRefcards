@@ -385,5 +385,41 @@ tee - Read from standard input and write to standard output and files
 
 
 ***
+
+## Package Management - Red Hat Style
+
+***
+
+| Distributions | Low-Level Tools | High-Level Tools|
+
+--- | --- | ---
+
+| Fedora, Red Hat Enterprise Linux, CentOS | rpm | yum |
+
+
+###Common Package Management Tasks
+
+**yum search search_string** - Finding A Package In A Repository
+
+**yum install package_name** - Installing A Package From A Repository
+
+**yum erase package_name** - Removing A Package
+
+**yum update** - Updating Packages From A Repository 
+
+**yum info package_name** - Displaying Info About An Installed Package
+
+**rpm -i package_file** - Installing A Package From A Package File
+
+**rpm -U package_file** - Upgrading A Package From A Package File
+
+**rpm -q package_name** - Determining If A Package Is Installed
+
+**rpm -qa** - Listing Installed Packages
+ 
+ **rpm -qf file_name** - Finding Which Package Installed A File
+ 
+ 
+***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
 ***
