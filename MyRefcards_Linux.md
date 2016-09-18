@@ -213,7 +213,7 @@ $ **which ls**
 which only works for executable programs, not shell builtins not aliases
 
 ***
-##### Getting A Command's Documentation
+### Getting A Command's Documentation
 ***
 
 **help command_name** : Display the built-in help for the given command
@@ -444,6 +444,24 @@ tee - Read from standard input and write to standard output and files
 **wodim (cdrecord)** – Write data to optical storage media
 
 **md5sum** – Calculate an MD5 checksum 
+
+***
+
+## Networking
+
+***
+
+**ping** – Send an ICMP ECHO_REQUEST to network hosts
+
+**traceroute** – Print the route packets trace to a network host
+
+**netstat** – Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+
+**ftp** – Internet file transfer program
+
+**wget** – Non-interactive network downloader
+
+**ssh** – OpenSSH SSH client (remote login program)
 
 ***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
