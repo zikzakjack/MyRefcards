@@ -459,9 +459,13 @@ tee - Read from standard input and write to standard output and files
 
 **ftp** – Internet file transfer program
 
+**lftp** – A Better ftp
+
 **wget** – Non-interactive network downloader
 
 **ssh** – OpenSSH SSH client (remote login program)
+
+**scp And sftp** - two programs that can make use of an SSH-encrypted tunnel to copy files across the network
 
 ***
 **I am reading :** The Linux Command Line by William E. Shotts, Jr.
