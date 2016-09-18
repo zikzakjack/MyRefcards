@@ -392,7 +392,7 @@ tee - Read from standard input and write to standard output and files
 
 | Distributions | Low-Level Tools | High-Level Tools|
 
---- | --- | ---
+| ------------- |:-------------:| -----:|
 
 | Fedora, Red Hat Enterprise Linux, CentOS | rpm | yum |
 
