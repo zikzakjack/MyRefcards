@@ -1,3 +1,13 @@
+# Spring stereotype annotations
+
+@Component - Indicates that an annotated class is a "component".
+
+@Controller - Indicates that an annotated class is a "Controller"
+
+@Repository - Indicates that an annotated class is a "Repository", originally defined by Domain-Driven Design (Evans, 2003) as "a mechanism for encapsulating storage, retrieval, and search behavior which emulates a collection of objects".
+
+@Service - Indicates that an annotated class is a "Service", originally defined by Domain-Driven Design (Evans, 2003) as "an operation offered as an interface that stands alone in the model, with no encapsulated state."
+
 # Spring context annotations
 
 @Bean - Indicates that a method produces a bean to be managed by the Spring container.
