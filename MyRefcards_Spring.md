@@ -1,3 +1,19 @@
+# Java common annotations
+
+@Generated - The Generated annotation is used to mark source code that has been generated.
+
+@ManagedBean - The ManagedBean annotation marks a POJO (Plain Old Java Object) as a ManagedBean.A ManagedBean supports a small set of basic services such as resource injection, lifecycle callbacks and interceptors.
+
+@PostConstruct - The PostConstruct annotation is used on a method that needs to be executed after dependency injection is done to perform any initialization.
+
+@PreDestroy - The PreDestroy annotation is used on methods as a callback notification to signal that the instance is in the process of being removed by the container.
+
+@Priority - The Priority annotation can be applied to classes to indicate in what order the classes should be used.
+
+@Resource - The Resource annotation marks a resource that is needed by the application.
+
+@Resources - This class is used to allow multiple resources declarations.
+
 # Spring stereotype annotations
 
 @Component - Indicates that an annotated class is a "component".
@@ -59,4 +75,30 @@
 @Required - Marks a method (typically a JavaBean setter method) as being 'required': that is, the setter method must be configured to be dependency-injected with a value.
 
 @Value - Annotation at the field or method/constructor parameter level that indicates a default value expression for the affected argument.
+
+# Spring format annotations
+
+@DateTimeFormat - Declares that a field should be formatted as a date time.
+
+@NumberFormat - Declares that a field should be formatted as a number.
+
+# Spring jms annotations
+
+@EnableJms - Enable JMS listener annotated endpoints that are created under the cover by a JmsListenerContainerFactory.
+
+@JmsListener - Annotation that marks a method to be the target of a JMS message listener on the specified JmsListener.destination().
+
+@JmsListeners - Container annotation that aggregates several JmsListener annotations.
+
+# Spring scheduling annotations
+
+@Async - Annotation that marks a method as a candidate for asynchronous execution.
+
+@EnableAsync - Enables Spring's asynchronous method execution capability, similar to functionality found in Spring's <task:*> XML namespace.
+
+@EnableScheduling - Enables Spring's scheduled task execution capability, similar to functionality found in Spring's <task:*> XML namespace.
+
+@Scheduled - An annotation that marks a method to be scheduled.
+
+@Schedules - Container annotation that aggregates several Scheduled annotations.
 
