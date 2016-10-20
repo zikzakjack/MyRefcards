@@ -36,3 +36,17 @@
 
 @Scope - When used as a type-level annotation in conjunction with @Component, @Scope indicates the name of a scope to use for instances of the annotated type.
 
+# Spring beans annotations
+
+@Autowired - Marks a constructor, field, setter method or config method as to be autowired by Spring's dependency injection facilities.
+
+@Configurable - Marks a class as being eligible for Spring-driven configuration.
+
+@Lookup - An annotation that indicates 'lookup' methods, to be overridden by the container to redirect them back to the BeanFactory for a getBean call.
+
+@Qualifier - This annotation may be used on a field or parameter as a qualifier for candidate beans when autowiring.
+
+@Required - Marks a method (typically a JavaBean setter method) as being 'required': that is, the setter method must be configured to be dependency-injected with a value.
+
+@Value - Annotation at the field or method/constructor parameter level that indicates a default value expression for the affected argument.
+
