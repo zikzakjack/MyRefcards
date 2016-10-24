@@ -102,3 +102,9 @@
 
 @Schedules - Container annotation that aggregates several Scheduled annotations.
 
+# Spring transaction annotations
+
+@EnableTransactionManagement - Enables Spring's annotation-driven transaction management capability
+
+@Transactional - Describes transaction attributes on a method or class.
+
