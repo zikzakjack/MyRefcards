@@ -108,3 +108,18 @@
 
 @Transactional - Describes transaction attributes on a method or class.
 
+# Spring test annotations
+
+@Commit - is a test annotation that is used to indicate that a test-managed transaction should be committed after the test method has completed.
+
+@DirtiesContext - Test annotation which indicates that the ApplicationContext associated with a test is dirty and should therefore be closed and removed from the context cache.
+
+@IfProfileValue - Test annotation to indicate whether a test is enabled or disabled for a specific testing profile.
+
+@ProfileValueSourceConfiguration - ProfileValueSourceConfiguration is a class-level annotation which is used to specify what type of ProfileValueSource to use when retrieving profile values configured via the @IfProfileValue annotation.
+
+@Repeat - Test annotation to indicate that a test method should be invoked repeatedly.
+
+@Rollback - is a test annotation that is used to indicate whether a test-managed transaction should be rolled back after the test method has completed.
+
+@Timed - Test-specific annotation to indicate that a test method has to finish execution in a specified time period.
