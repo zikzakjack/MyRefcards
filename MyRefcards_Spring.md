@@ -123,3 +123,63 @@
 @Rollback - is a test annotation that is used to indicate whether a test-managed transaction should be rolled back after the test method has completed.
 
 @Timed - Test-specific annotation to indicate that a test method has to finish execution in a specified time period.
+
+# Spring Boot Annotations
+
+@RestController
+
+@SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan
+
+@EnableAutoConfiguration
+
+@Value
+
+@ConfigurationProperties
+
+@EnableConfigurationProperties
+
+@Valid
+
+@Required
+
+@Path
+
+@ExceptionHandler
+
+@ControllerAdvice
+
+@PathVariable
+
+@Secured
+
+@ResponseBODY
+
+## Spring JPA Annotations
+
+@Entity
+
+@Id
+
+@GeneratedValue
+
+@Column
+ 
+@PostConstruct
+
+@OneToMany
+
+@ManyToOne
+
+@CreatedBy
+
+@LastModifiedBy
+
+@CreatedDate
+
+@LastModifiedDate
+
+@Repository
+
+@Query
+
+@Param
