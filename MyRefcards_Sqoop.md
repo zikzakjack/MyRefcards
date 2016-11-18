@@ -40,8 +40,6 @@ sqoop version
     
         --username=retail_dba \
     
-        --password=cloudera \
-    
         -P
 
 ## Import a Table
