@@ -88,6 +88,24 @@ sqoop version
     
         --as-sequencefile
     
+## Import a Table in Avro File format
+
+    sqoop import \
+
+        -m 1 \
+    
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+    
+        --username=retail_dba \
+    
+        --password=cloudera \
+    
+        --table departments  \
+    
+        --warehouse-dir=/user/hive/warehouse \
+    
+        --as-avrodatafile
+    
 ## Import only a sub-set of Table data
 
     sqoop import \
