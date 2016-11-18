@@ -272,3 +272,21 @@ sqoop version
     
         --hive-import
     
+## Exclude Tables During Bulk Import
+
+    sqoop import-all-tables \
+
+        -m 1 \
+    
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+    
+        --username=retail_dba \
+    
+        --password=cloudera \
+    
+        --warehouse-dir=/user/hive/warehouse \
+    
+        --exclude-tables orders,customers \
+    
+        --hive-import
+    
