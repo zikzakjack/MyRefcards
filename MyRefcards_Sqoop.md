@@ -216,5 +216,5 @@ sqoop version
     
         --warehouse-dir=/user/hive/warehouse \
     
-        --map-column-java department_id=Long,department_name=String
+        --hive-import
     
