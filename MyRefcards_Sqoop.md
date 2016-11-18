@@ -50,3 +50,24 @@ sqoop version
     
         --hive-import
     
+## Import only a sub-set of Table data
+
+    sqoop import \
+
+        -m 1 \
+    
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+    
+        --username=retail_dba \
+    
+        --password=cloudera \
+    
+        --table departments  \
+    
+        --where "department_id > 10" \
+    
+        --warehouse-dir=/user/hive/warehouse \
+    
+        --hive-import
+    
+    
