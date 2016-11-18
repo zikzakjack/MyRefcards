@@ -32,6 +32,18 @@ sqoop version
     
         --verbose
 
+## Provide Password from Command Prompt
+
+    sqoop list-tables \
+
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+    
+        --username=retail_dba \
+    
+        --password=cloudera \
+    
+        -P
+
 ## Import a Table
 
     sqoop import \
