@@ -10,43 +10,43 @@ sqoop version
 
 ## List Databases
 
-sqoop list-databases \
+    sqoop list-databases \
 
-    --connect jdbc:mysql://quickstart:3306/retail_db \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
     
-    --username=retail_dba \
+        --username=retail_dba \
     
-    --password=cloudera \
+        --password=cloudera \
     
-    --verbose
+        --verbose
 
 ## List Tables
 
-sqoop list-tables \
+    sqoop list-tables \
 
-    --connect jdbc:mysql://quickstart:3306/retail_db \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
     
-    --username=retail_dba \
+        --username=retail_dba \
     
-    --password=cloudera \
+        --password=cloudera \
     
-    --verbose
+        --verbose
 
 ## Import a Table
 
-sqoop import \
+    sqoop import \
 
-    -m 1 \
+        -m 1 \
     
-    --connect jdbc:mysql://quickstart:3306/retail_db \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
     
-    --username=retail_dba \
+        --username=retail_dba \
     
-    --password=cloudera \
+        --password=cloudera \
     
-    --table departments  \
+        --table departments  \
     
-    --warehouse-dir=/user/hive/warehouse \
+        --warehouse-dir=/user/hive/warehouse \
     
-    --hive-import
+        --hive-import
     
