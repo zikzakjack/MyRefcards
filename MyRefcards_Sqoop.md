@@ -42,6 +42,16 @@ sqoop version
     
         -P
 
+## Provide Password from a Password File
+
+    sqoop list-tables \
+
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+    
+        --username=retail_dba \
+    
+        --password-file my-sqoop-pwd-file
+
 ## Import a Table
 
     sqoop import \
