@@ -31,12 +31,19 @@ sqoop version
         --username=retail_dba \
         -P
 
+## Import Sqoop Password File into HDFS
+
+    echo -n "cloudera" > sqoop.password
+    hdfs dfs -put sqoop.password /user/cloudera/sqoop.password
+    hdfs dfs -chown 400 /user/cloudera/sqoop.password
+    rm sqoop.password
+
 ## Provide Password from a Password File
 
     sqoop list-tables \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
-        --password-file my-sqoop-pwd-file
+        --password-file sqoop.password
 
 ## Import a Table
 
