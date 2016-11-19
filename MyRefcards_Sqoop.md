@@ -86,7 +86,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
+        --target-dir=/user/hive/warehouse/departments_parquet_ff \
         --as-parquetfile
     
 ## Import a Table in GZip compressed format
