@@ -64,7 +64,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
+        --target-dir=/user/hive/warehouse/departments_sq_ff \
         --as-sequencefile
     
 ## Import a Table in Avro File format
