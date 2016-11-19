@@ -11,13 +11,9 @@ sqoop version
 ## List Databases
 
     sqoop list-databases \
-
         --connect jdbc:mysql://quickstart:3306/retail_db \
-    
         --username=retail_dba \
-    
         --password=cloudera \
-    
         --verbose
 
 ## List Tables
