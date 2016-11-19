@@ -97,7 +97,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
+        --target-dir=/user/hive/warehouse/departments_compressed_GZip \
         --compress
     
 ## Import a Table in BZip2 compressed format
