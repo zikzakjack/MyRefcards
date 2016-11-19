@@ -75,7 +75,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
+        --target-dir=/user/hive/warehouse/departments_avro_ff \
         --as-avrodatafile
     
 ## Import a Table in Parquet File format
