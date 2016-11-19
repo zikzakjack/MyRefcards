@@ -108,7 +108,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
+        --target-dir=/user/hive/warehouse/departments_compressed_BZip2 \
         --compress    
         --compression-codec org.apache.hadoop.io.compress.BZip2Codec
     
