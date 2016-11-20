@@ -120,8 +120,7 @@ sqoop version
         --password=cloudera \
         --table departments  \
         --where "department_id >= 5" \
-        --target-dir=/user/hive/warehouse/departments_gt_5 \
-        --hive-import
+        --target-dir=/user/hive/warehouse/departments_gt_5
     
 ## Override Column Type Mapping
 
