@@ -53,8 +53,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
-        --hive-import
+        --warehouse-dir=/user/hive/warehouse
     
 ## Import a Table in SequenceFile format
 
@@ -64,7 +63,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --target-dir=/user/hive/warehouse/departments_sq_ff \
+        --target-dir=/user/hive/warehouse/departments_ff_sq \
         --as-sequencefile
     
 ## Import a Table in Avro File format
@@ -75,7 +74,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --target-dir=/user/hive/warehouse/departments_avro_ff \
+        --target-dir=/user/hive/warehouse/departments_ff_avro \
         --as-avrodatafile
     
 ## Import a Table in Parquet File format
@@ -86,7 +85,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --target-dir=/user/hive/warehouse/departments_parquet_ff \
+        --target-dir=/user/hive/warehouse/departments_ff_parquet \
         --as-parquetfile
     
 ## Import a Table in GZip compressed format
@@ -109,7 +108,7 @@ sqoop version
         --password=cloudera \
         --table departments  \
         --target-dir=/user/hive/warehouse/departments_compressed_BZip2 \
-        --compress    
+        --compress \
         --compression-codec org.apache.hadoop.io.compress.BZip2Codec
     
 ## Import only a sub-set of Table data
@@ -120,8 +119,8 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --where "department_id > 10" \
-        --warehouse-dir=/user/hive/warehouse \
+        --where "department_id >= 5" \
+        --target-dir=/user/hive/warehouse/departments_gt_5 \
         --hive-import
     
 ## Override Column Type Mapping
@@ -132,18 +131,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
-        --map-column-java department_id=Long,department_name=String
-    
-## Override Column Type Mapping
-
-    sqoop import \
-        -m 1 \
-        --connect jdbc:mysql://quickstart:3306/retail_db \
-        --username=retail_dba \
-        --password=cloudera \
-        --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
+        --target-dir=/user/hive/warehouse/departments_col_mapping \
         --map-column-java department_id=Long,department_name=String
     
 ## Increasing the Number Of Mappers For Larger Dataset
@@ -154,8 +142,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
-        --hive-import
+        --target-dir=/user/hive/warehouse/departments_10_mappers
     
 ## Handling NULL Values From Database
 
@@ -165,7 +152,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
-        --warehouse-dir=/user/hive/warehouse \
+        --target-dir=/user/hive/warehouse/departments_NULL_handling \
         --null-string '\\N' \
         --null-non-string '\\N'
     
@@ -176,8 +163,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --warehouse-dir=/user/hive/warehouse \
-        --hive-import
+        --warehouse-dir=/user/hive/warehouse/import_all
     
 ## Exclude Tables During Bulk Import
 
@@ -186,7 +172,6 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --warehouse-dir=/user/hive/warehouse \
-        --exclude-tables orders,customers \
-        --hive-import
+        --warehouse-dir=/user/hive/warehouse/import_all_with_excludes \
+        --exclude-tables orders,customers
     
