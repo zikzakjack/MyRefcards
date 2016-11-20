@@ -174,3 +174,24 @@ sqoop version
         --warehouse-dir=/user/hive/warehouse/import_all_with_excludes \
         --exclude-tables orders,customers
     
+## Importing Only New Data Based On ID Column Value
+
+    sqoop import \
+        -m 1 \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders  \
+        --where "order_id <= 4000" \
+        --target-dir=/user/hive/warehouse/orders_incremental_append
+
+    sqoop import \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders  \
+        --target-dir=/user/hive/warehouse/orders_incremental_append \
+        --incremental=append \
+        --check-column=order_id \
+        --last-value=4000
+    
