@@ -382,3 +382,13 @@ sqoop version
         --input-null-string '\\N' \
         --input-null-non-string '\\N'
     
+## Exporting into a Subset of Columns
+    
+    sqoop export \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders_processed \
+        --export-dir=/user/hive/warehouse/import_all/orders_processed \
+        --columns order_id,order_date
+    
