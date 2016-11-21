@@ -234,7 +234,7 @@ sqoop version
         import \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
-        --password=cloudera \
+        --password-file sqoop.password \
         --table orders \
         --target-dir=/user/hive/warehouse/orders_incremental_lastmodified \
         --incremental=lastmodified \
