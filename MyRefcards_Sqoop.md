@@ -291,3 +291,13 @@ sqoop version
         --boundary-query "select min(category_id), max(category_id) from CATEGORIES" \
         --target-dir=/user/hive/warehouse/categories_denormed 
     
+## Provide Custom Name to MapReduce Jobs triggered by Sqoop
+
+    sqoop import \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table departments  \
+        --target-dir=/user/hive/warehouse/departments_custom_mr_job \
+        --mapreduce-job-name departments_custom_mr_job
+    
