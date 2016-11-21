@@ -217,3 +217,34 @@ sqoop version
         --last-value='2013-08-17 00:00:00' \
         --merge-key=order_id
     
+## Create Sqoop Job For Incremental Import
+
+    sqoop import \
+        -m 1 \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --where "order_date < '2013-08-17 00:00:00'" \
+        --target-dir=/user/hive/warehouse/orders_incremental_lastmodified
+    
+    sqoop job \
+        --create sqoop_job_incremental_import_Orders \
+        -- \
+        import \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --target-dir=/user/hive/warehouse/orders_incremental_lastmodified \
+        --incremental=lastmodified \
+        --check-column=order_date \
+        --last-value='2013-08-17 00:00:00' \
+        --merge-key=order_id
+    
+    sqoop job --list
+    
+    sqoop job --show sqoop_job_incremental_import_Orders
+    
+    sqoop job --exec sqoop_job_incremental_import_Orders
+    
