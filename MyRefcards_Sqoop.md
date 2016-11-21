@@ -301,3 +301,12 @@ sqoop version
         --target-dir=/user/hive/warehouse/departments_custom_mr_job \
         --mapreduce-job-name departments_custom_mr_job
     
+## Transferring Data from Hadoop to RDBMS
+
+        sqoop export \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table departments  \
+        --export-dir=/user/hive/warehouse/departments
+    
