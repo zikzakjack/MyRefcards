@@ -278,3 +278,16 @@ sqoop version
         --split-by category_id \
         --target-dir=/user/hive/warehouse/categories_denormed 
     
+## Import Data Using a Join Query and Boundary Conditions
+    
+    sqoop import \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --query 'SELECT cat.category_id, dept.department_name, cat.category_name 
+            FROM CATEGORIES cat, DEPARTMENTS dept 
+            where cat.category_department_id = dept.department_id' \
+        --split-by category_id \
+        --boundary-query "select min(category_id), max(category_id) from CATEGORIES" \
+        --target-dir=/user/hive/warehouse/categories_denormed 
+    
