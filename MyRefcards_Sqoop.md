@@ -181,7 +181,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders  \
+        --table orders \
         --where "order_id <= 4000" \
         --target-dir=/user/hive/warehouse/orders_incremental_append
 
@@ -189,9 +189,31 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders  \
+        --table orders \
         --target-dir=/user/hive/warehouse/orders_incremental_append \
         --incremental=append \
         --check-column=order_id \
         --last-value=4000
+    
+## Importing Only New Data Based On LastModified Timestamp
+
+    sqoop import \
+        -m 1 \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --where "order_date < '2013-08-17 00:00:00'" \
+        --target-dir=/user/hive/warehouse/orders_incremental_lastmodified
+    
+    sqoop import \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --target-dir=/user/hive/warehouse/orders_incremental_lastmodified \
+        --incremental=lastmodified \
+        --check-column=order_date \
+        --last-value='2013-08-17 00:00:00' \
+        --merge-key=order_id
     
