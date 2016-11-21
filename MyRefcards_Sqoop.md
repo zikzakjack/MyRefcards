@@ -357,7 +357,17 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders \
-        --staging-table staging_orders \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --update-key order_id
+    
+## Updating/Inserting Existing/New DataSet
+
+        sqoop export \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --export-dir=/user/hive/warehouse/import_all/orders \
+        --update-key order_id \
+        --update-mode allowinsert
     
