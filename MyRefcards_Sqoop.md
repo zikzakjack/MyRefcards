@@ -303,7 +303,7 @@ sqoop version
     
 ## Export Data from Hadoop to RDBMS
 
-        sqoop export \
+    sqoop export \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
@@ -312,7 +312,7 @@ sqoop version
     
 ## Export Data from Hadoop to RDBMS - Using JDBC Batch
 
-        sqoop export \
+    sqoop export \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
@@ -322,7 +322,7 @@ sqoop version
     
 ## Export Data from Hadoop to RDBMS - Using Mutiple Insert
 
-        sqoop export \
+    sqoop export \
         -Dsqoop.export.records.per.statement=10 \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
@@ -332,7 +332,7 @@ sqoop version
     
 ## Export Data from Hadoop to RDBMS - Controlling No Of Statements Per Transaction
 
-        sqoop export \
+    sqoop export \
         -Dsqoop.export.statements.per.transaction=10 \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
@@ -342,7 +342,7 @@ sqoop version
     
 ## Exporting with All-or-Nothing Semantics using Staging Table
 
-        sqoop export \
+    sqoop export \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
@@ -352,7 +352,7 @@ sqoop version
     
 ## Updating an Existing DataSet
 
-        sqoop export \
+    sqoop export \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
@@ -362,7 +362,7 @@ sqoop version
     
 ## Updating/Inserting Existing/New DataSet
 
-        sqoop export \
+    sqoop export \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
@@ -370,4 +370,15 @@ sqoop version
         --export-dir=/user/hive/warehouse/import_all/orders \
         --update-key order_id \
         --update-mode allowinsert
+    
+## Handling NULL Values From HDFS
+    
+    sqoop export \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --export-dir=/user/hive/warehouse/import_all/orders \
+        --input-null-string '\\N' \
+        --input-null-non-string '\\N'
     
