@@ -330,3 +330,13 @@ sqoop version
         --table orders \
         --export-dir=/user/hive/warehouse/import_all/orders
     
+## Export Data from Hadoop to RDBMS - Controlling No Of Statements Per Transaction
+
+        sqoop export \
+        -Dsqoop.export.statements.per.transaction=10 \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --export-dir=/user/hive/warehouse/import_all/orders
+    
