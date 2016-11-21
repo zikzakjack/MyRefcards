@@ -217,7 +217,7 @@ sqoop version
         --last-value='2013-08-17 00:00:00' \
         --merge-key=order_id
     
-## Create Sqoop Job For Incremental Import
+## Create a Sqoop Job For Incremental Import
 
     sqoop import \
         -m 1 \
@@ -242,11 +242,21 @@ sqoop version
         --last-value='2013-08-17 00:00:00' \
         --merge-key=order_id
     
+## List All Sqoop Jobs
+    
     sqoop job --list
+    
+## View a Sqoop Job Definition
     
     sqoop job --show sqoop_job_incremental_import_Orders
     
+## Execute a Sqoop Job
+    
     sqoop job --exec sqoop_job_incremental_import_Orders
+    
+## Delete a Sqoop Job
+    
+    sqoop job --delete sqoop_job_incremental_import_Orders
     
 ## Add Verbose to Sqoop Job
     
