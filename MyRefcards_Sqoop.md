@@ -266,3 +266,15 @@ sqoop version
     
     sqoop metastore
     
+## Import Data Using a Join Query
+    
+    sqoop import \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --query 'SELECT cat.category_id, dept.department_name, cat.category_name 
+            FROM CATEGORIES cat, DEPARTMENTS dept 
+            where cat.category_department_id = dept.department_id' \
+        --split-by category_id \
+        --target-dir=/user/hive/warehouse/categories_denormed 
+    
