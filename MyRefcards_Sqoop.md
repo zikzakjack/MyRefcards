@@ -262,3 +262,7 @@ sqoop version
     
     sqoop job --exec sqoop_job_incremental_import_Orders -- --verbose
     
+## Start a Sqoop Metastore Service
+    
+    sqoop metastore
+    
