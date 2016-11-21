@@ -340,3 +340,13 @@ sqoop version
         --table orders \
         --export-dir=/user/hive/warehouse/import_all/orders
     
+## Exporting with All-or-Nothing Semantics using Staging Table
+
+        sqoop export \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --staging-table staging_orders
+        --export-dir=/user/hive/warehouse/import_all/orders
+    
