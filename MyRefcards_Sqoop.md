@@ -248,3 +248,7 @@ sqoop version
     
     sqoop job --exec sqoop_job_incremental_import_Orders
     
+## Add Verbose to Sqoop Job
+    
+    sqoop job --exec sqoop_job_incremental_import_Orders -- --verbose
+    
