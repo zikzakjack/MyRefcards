@@ -307,6 +307,16 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table departments  \
-        --export-dir=/user/hive/warehouse/departments
+        --table orders \
+        --export-dir=/user/hive/warehouse/import_all/orders
+    
+## Batch Export Data from Hadoop to RDBMS
+
+        sqoop export \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table orders \
+        --export-dir=/user/hive/warehouse/import_all/orders \
+        --batch
     
