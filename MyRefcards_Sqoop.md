@@ -3,7 +3,7 @@
 ## References
 
 1. [Sqoop User Guide](http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html)
-2. [“Apache Sqoop Cookbook by Kathleen Ting and Jarek Jarcec Cecho (O’Reilly). Copyright 2013 Kathleen Ting and Jarek Jarcec Cecho, 978-1-449-36462-5.”](https://www.amazon.com/Apache-Sqoop-Cookbook-Unlocking-Relational/dp/1449364624)
+2. [Apache Sqoop Cookbook by Kathleen Ting and Jarek Jarcec Cecho (O’Reilly). Copyright 2013 Kathleen Ting and Jarek Jarcec Cecho, 978-1-449-36462-5](https://www.amazon.com/Apache-Sqoop-Cookbook-Unlocking-Relational/dp/1449364624)
 
 ## Help
 
