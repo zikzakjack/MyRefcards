@@ -3,7 +3,7 @@
 ## References
 
 1. [Sqoop User Guide](http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html)
-2. [Apache Sqoop Cookbook by Kathleen Ting and Jarek Jarcec Cecho (O’Reilly). Copyright 2013 Kathleen Ting and Jarek Jarcec Cecho, 978-1-449-36462-5](https://www.amazon.com/Apache-Sqoop-Cookbook-Unlocking-Relational/dp/1449364624)
+2. [Apache Sqoop Cookbook by Kathleen Ting and Jarek Jarcec Cecho (Oï¿½Reilly). Copyright 2013 Kathleen Ting and Jarek Jarcec Cecho, 978-1-449-36462-5](https://www.amazon.com/Apache-Sqoop-Cookbook-Unlocking-Relational/dp/1449364624)
 
 ## Help
 
@@ -231,7 +231,7 @@ sqoop version
         --password=cloudera \
         --table orders \
         --where "order_date < '2013-08-17 00:00:00'" \
-        --target-dir=/user/hive/warehouse/orders_incremental_lastmodified
+        --target-dir=/user/hive/warehouse/sqoop_job_incremental_import_Orders
     
     sqoop job \
         --create sqoop_job_incremental_import_Orders \
@@ -241,7 +241,7 @@ sqoop version
         --username=retail_dba \
         --password-file sqoop.password \
         --table orders \
-        --target-dir=/user/hive/warehouse/orders_incremental_lastmodified \
+        --target-dir=/user/hive/warehouse/sqoop_job_incremental_import_Orders \
         --incremental=lastmodified \
         --check-column=order_date \
         --last-value='2013-08-17 00:00:00' \
@@ -274,14 +274,16 @@ sqoop version
 ## Import Data Using a Join Query
     
     sqoop import \
+        --num-mappers 1 \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --query 'SELECT cat.category_id, dept.department_name, cat.category_name 
-            FROM CATEGORIES cat, DEPARTMENTS dept 
-            where cat.category_department_id = dept.department_id' \
+        --query 'SELECT cat.category_id as category_id, dept.department_name as department_name, cat.category_name as category_name
+            FROM categories cat JOIN departments dept 
+            on cat.category_department_id = dept.department_id where $CONDITIONS' \
         --split-by category_id \
-        --target-dir=/user/hive/warehouse/categories_denormed 
+        --target-dir=/user/hive/warehouse/categories_denormed \
+        --map-column-java category_id=Long,department_name=String,category_name=String
     
 ## Import Data Using a Join Query and Boundary Conditions
     
@@ -289,12 +291,12 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --query 'SELECT cat.category_id, dept.department_name, cat.category_name 
-            FROM CATEGORIES cat, DEPARTMENTS dept 
-            where cat.category_department_id = dept.department_id' \
+        --query 'SELECT cat.category_id as category_id, dept.department_name as department_name, cat.category_name as category_name
+            FROM categories cat JOIN departments dept 
+            on cat.category_department_id = dept.department_id where $CONDITIONS' \
         --split-by category_id \
-        --boundary-query "select min(category_id), max(category_id) from CATEGORIES" \
-        --target-dir=/user/hive/warehouse/categories_denormed 
+        --boundary-query "select min(category_id), max(category_id) from categories" \
+        --target-dir=/user/hive/warehouse/categories_denormed_with_boundary 
     
 ## Provide Custom Name to MapReduce Jobs triggered by Sqoop
 
