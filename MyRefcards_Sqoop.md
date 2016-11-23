@@ -306,7 +306,7 @@ sqoop version
         --password=cloudera \
         --table departments  \
         --target-dir=/user/hive/warehouse/departments_custom_mr_job \
-        --mapreduce-job-name departments_custom_mr_job
+        --mapreduce-job-name `date +%Y-%m-%d`_`echo $USER`_departments_custom_mr_job_name
     
 ## Export Data from Hadoop to RDBMS
 
