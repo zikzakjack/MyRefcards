@@ -370,6 +370,7 @@ sqoop version
         --password=cloudera \
         --table orders_copy_05 \
         --staging-table orders_staging \
+        --clear-staging-table \
         --export-dir=/user/hive/warehouse/import_all/orders
     
 ## Updating an Existing DataSet
