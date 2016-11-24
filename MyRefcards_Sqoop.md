@@ -310,11 +310,26 @@ sqoop version
     
 ## Export Data from Hadoop to RDBMS
 
+    mysql --user=retail_dba --password=cloudera --database=retail_db
+    SELECT count(*) FROM orders; -- 68883
+    CREATE TABLE orders_staging SELECT * FROM orders WHERE 1=0;
+    CREATE TABLE orders_copy_01 SELECT * FROM orders WHERE 1=0;
+    CREATE TABLE orders_copy_02 SELECT * FROM orders WHERE 1=0;
+    CREATE TABLE orders_copy_03 SELECT * FROM orders WHERE 1=0;
+    CREATE TABLE orders_copy_04 SELECT * FROM orders WHERE 1=0;
+    CREATE TABLE orders_copy_05 SELECT * FROM orders WHERE 1=0;
+    CREATE TABLE orders_copy_06 SELECT * FROM orders WHERE order_id > 100; -- 68783
+    CREATE TABLE orders_copy_07 SELECT * FROM orders WHERE order_id > 100; -- 68783
+    select * from orders_copy_07 where order_id=101;
+    UPDATE TABLE orders_copy_07 SET order_status='COMPLETE' where order_id=101;
+    select * from orders_copy_07 where order_id=101;
+    CREATE TABLE orders_copy_08 SELECT * FROM orders WHERE 1=0;
+    
     sqoop export \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders \
+        --table orders_copy_01 \
         --export-dir=/user/hive/warehouse/import_all/orders
     
 ## Export Data from Hadoop to RDBMS - Using JDBC Batch
@@ -323,7 +338,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders \
+        --table orders_copy_02 \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --batch
     
@@ -334,7 +349,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders \
+        --table orders_copy_03 \
         --export-dir=/user/hive/warehouse/import_all/orders
     
 ## Export Data from Hadoop to RDBMS - Controlling No Of Statements Per Transaction
@@ -344,7 +359,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders \
+        --table orders_copy_04 \
         --export-dir=/user/hive/warehouse/import_all/orders
     
 ## Exporting with All-or-Nothing Semantics using Staging Table
@@ -353,8 +368,8 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders \
-        --staging-table staging_orders \
+        --table orders_copy_05 \
+        --staging-table orders_staging \
         --export-dir=/user/hive/warehouse/import_all/orders
     
 ## Updating an Existing DataSet
@@ -363,7 +378,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders \
+        --table orders_copy_06 \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --update-key order_id
     
@@ -373,7 +388,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders \
+        --table orders_copy_07 \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --update-key order_id \
         --update-mode allowinsert
@@ -384,7 +399,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
-        --table orders \
+        --table orders_copy_08 \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --input-null-string '\\N' \
         --input-null-non-string '\\N'
