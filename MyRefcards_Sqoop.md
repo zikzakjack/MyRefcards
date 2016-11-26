@@ -58,6 +58,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
+        --fields-terminated-by \\t \
         --warehouse-dir=/user/hive/warehouse
     
 ## Import a Table in SequenceFile format
@@ -101,6 +102,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/departments_compressed_GZip \
         --compress
     
@@ -112,6 +114,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/departments_compressed_BZip2 \
         --compress \
         --compression-codec org.apache.hadoop.io.compress.BZip2Codec
@@ -125,6 +128,7 @@ sqoop version
         --password=cloudera \
         --table departments  \
         --where "department_id >= 5" \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/departments_gt_5
     
 ## Override Column Type Mapping
@@ -135,6 +139,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/departments_col_mapping \
         --map-column-java department_id=Long,department_name=String
     
@@ -146,6 +151,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table departments  \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/departments_10_mappers
     
 ## Handling NULL Values From Database
@@ -157,6 +163,7 @@ sqoop version
         --password=cloudera \
         --table departments  \
         --target-dir=/user/hive/warehouse/departments_NULL_handling \
+        --fields-terminated-by \\t \
         --null-string '\\N' \
         --null-non-string '\\N'
     
@@ -167,6 +174,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
+        --fields-terminated-by \\t \
         --warehouse-dir=/user/hive/warehouse/import_all
     
 ## Exclude Tables During Bulk Import
@@ -176,6 +184,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
+        --fields-terminated-by \\t \
         --warehouse-dir=/user/hive/warehouse/import_all_with_excludes \
         --exclude-tables orders,customers
     
@@ -188,6 +197,7 @@ sqoop version
         --password=cloudera \
         --table orders \
         --where "order_id <= 4000" \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/orders_incremental_append
 
     sqoop import \
@@ -195,6 +205,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/orders_incremental_append \
         --incremental=append \
         --check-column=order_id \
@@ -209,6 +220,7 @@ sqoop version
         --password=cloudera \
         --table orders \
         --where "order_date < '2013-08-17 00:00:00'" \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/orders_incremental_lastmodified
     
     sqoop import \
@@ -216,6 +228,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/orders_incremental_lastmodified \
         --incremental=lastmodified \
         --check-column=order_date \
@@ -230,6 +243,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders \
+        --fields-terminated-by \\t \
         --where "order_date < '2013-08-17 00:00:00'" \
         --target-dir=/user/hive/warehouse/sqoop_job_incremental_import_Orders
     
@@ -241,6 +255,7 @@ sqoop version
         --username=retail_dba \
         --password-file sqoop.password \
         --table orders \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/sqoop_job_incremental_import_Orders \
         --incremental=lastmodified \
         --check-column=order_date \
@@ -282,6 +297,7 @@ sqoop version
             FROM categories cat JOIN departments dept 
             on cat.category_department_id = dept.department_id where $CONDITIONS' \
         --split-by category_id \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/categories_denormed \
         --map-column-java category_id=Long,department_name=String,category_name=String
     
@@ -296,6 +312,7 @@ sqoop version
             on cat.category_department_id = dept.department_id where $CONDITIONS' \
         --split-by category_id \
         --boundary-query "select min(category_id), max(category_id) from categories" \
+        --fields-terminated-by \\t \
         --target-dir=/user/hive/warehouse/categories_denormed_with_boundary 
     
 ## Provide Custom Name to MapReduce Jobs triggered by Sqoop
@@ -306,6 +323,7 @@ sqoop version
         --password=cloudera \
         --table departments  \
         --target-dir=/user/hive/warehouse/departments_custom_mr_job \
+        --fields-terminated-by \\t \
         --mapreduce-job-name `date +%Y-%m-%d`_`echo $USER`_departments_custom_mr_job_name
     
 ## Export Data from Hadoop to RDBMS
