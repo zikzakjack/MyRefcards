@@ -2,8 +2,8 @@
 
 ## References
 
-1. [Sqoop User Guide](http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html)
-2. [Apache Sqoop Cookbook by Kathleen Ting and Jarek Jarcec Cecho (O�Reilly). Copyright 2013 Kathleen Ting and Jarek Jarcec Cecho, 978-1-449-36462-5](https://www.amazon.com/Apache-Sqoop-Cookbook-Unlocking-Relational/dp/1449364624)
+## 1. [Sqoop User Guide](http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html)
+## 2. [Apache Sqoop Cookbook by Kathleen Ting and Jarek Jarcec Cecho (O�Reilly). Copyright 2013 Kathleen Ting and Jarek Jarcec Cecho, 978-1-449-36462-5](https://www.amazon.com/Apache-Sqoop-Cookbook-Unlocking-Relational/dp/1449364624)
 
 ## Help
 
@@ -284,7 +284,7 @@ sqoop version
     
 ## Start a Sqoop Metastore Service
     
-    sqoop metastore
+#    sqoop metastore
     
 ## Import Data Using a Join Query
     
@@ -328,21 +328,43 @@ sqoop version
     
 ## Export Data from Hadoop to RDBMS
 
-    mysql --user=retail_dba --password=cloudera --database=retail_db
-    SELECT count(*) FROM orders; -- 68883
-    CREATE TABLE orders_staging SELECT * FROM orders WHERE 1=0;
-    CREATE TABLE orders_copy_01 SELECT * FROM orders WHERE 1=0;
-    CREATE TABLE orders_copy_02 SELECT * FROM orders WHERE 1=0;
-    CREATE TABLE orders_copy_03 SELECT * FROM orders WHERE 1=0;
-    CREATE TABLE orders_copy_04 SELECT * FROM orders WHERE 1=0;
-    CREATE TABLE orders_copy_05 SELECT * FROM orders WHERE 1=0;
-    CREATE TABLE orders_copy_06 SELECT * FROM orders WHERE order_id > 100; -- 68783
-    CREATE TABLE orders_copy_07 SELECT * FROM orders WHERE order_id > 100; -- 68783
-    select * from orders_copy_07 where order_id=101;
-    UPDATE TABLE orders_copy_07 SET order_status='COMPLETE' where order_id=101;
-    select * from orders_copy_07 where order_id=101;
-    CREATE TABLE orders_copy_08 SELECT * FROM orders WHERE 1=0;
-    
+#    mysql --user=retail_dba --password=cloudera --database=retail_db
+#    
+#    TRUNCATE orders_copy_01;
+#    TRUNCATE orders_copy_02;
+#    TRUNCATE orders_copy_03;
+#    TRUNCATE orders_copy_04;
+#    TRUNCATE orders_copy_05;
+#    TRUNCATE orders_copy_06;
+#    TRUNCATE orders_copy_07;
+#    TRUNCATE orders_copy_08;
+#    TRUNCATE orders_processed;
+
+#    DROP TABLE orders_copy_01;
+#    DROP TABLE orders_copy_02;
+#    DROP TABLE orders_copy_03;
+#    DROP TABLE orders_copy_04;
+#    DROP TABLE orders_copy_05;
+#    DROP TABLE orders_copy_06;
+#    DROP TABLE orders_copy_07;
+#    DROP TABLE orders_copy_08;
+#    DROP TABLE orders_processed;
+
+#    SELECT count(*) FROM orders; -- 68883
+#    CREATE TABLE orders_staging SELECT * FROM orders WHERE 1=0;
+#    CREATE TABLE orders_copy_01 SELECT * FROM orders WHERE 1=0;
+#    CREATE TABLE orders_copy_02 SELECT * FROM orders WHERE 1=0;
+#    CREATE TABLE orders_copy_03 SELECT * FROM orders WHERE 1=0;
+#    CREATE TABLE orders_copy_04 SELECT * FROM orders WHERE 1=0;
+#    CREATE TABLE orders_copy_05 SELECT * FROM orders WHERE 1=0;
+#    CREATE TABLE orders_copy_06 SELECT * FROM orders WHERE order_id > 100; -- 68783
+#    CREATE TABLE orders_copy_07 SELECT * FROM orders WHERE order_id > 100; -- 68783
+#    select * from orders_copy_07 where order_id=101;
+#    UPDATE orders_copy_07 SET order_status='COMPLETE' where order_id=101;
+#    select * from orders_copy_07 where order_id=101;
+#    CREATE TABLE orders_copy_08 SELECT * FROM orders WHERE 1=0;
+#    CREATE TABLE orders_processed SELECT * FROM orders WHERE 1=0;
+
     sqoop export \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
