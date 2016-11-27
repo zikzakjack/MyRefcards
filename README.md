@@ -7,4 +7,6 @@ I intend to use this repo to archive my refcards which would be frequently used 
 3. [Spring](MyRefcards_Spring.md)
 4. [Sqoop](MyRefcards_Sqoop.md)
 
-Wiki Tips : https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+Wiki Tips : 
+1. https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+2. https://guides.github.com/features/mastering-markdown/
