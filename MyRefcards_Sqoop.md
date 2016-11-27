@@ -2,8 +2,8 @@
 
 ## References
 
-## 1. [Sqoop User Guide](http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html)
-## 2. [Apache Sqoop Cookbook by Kathleen Ting and Jarek Jarcec Cecho (O�Reilly). Copyright 2013 Kathleen Ting and Jarek Jarcec Cecho, 978-1-449-36462-5](https://www.amazon.com/Apache-Sqoop-Cookbook-Unlocking-Relational/dp/1449364624)
+###### 1. [Sqoop User Guide](http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html)
+###### 2. [Apache Sqoop Cookbook by Kathleen Ting and Jarek Jarcec Cecho (O�Reilly). Copyright 2013 Kathleen Ting and Jarek Jarcec Cecho, 978-1-449-36462-5](https://www.amazon.com/Apache-Sqoop-Cookbook-Unlocking-Relational/dp/1449364624)
 
 ## Help
 
@@ -284,7 +284,7 @@ sqoop version
     
 ## Start a Sqoop Metastore Service
     
-#    sqoop metastore
+######    sqoop metastore
     
 ## Import Data Using a Join Query
     
@@ -326,50 +326,53 @@ sqoop version
         --fields-terminated-by \\t \
         --mapreduce-job-name `date +%Y-%m-%d`_`echo $USER`_departments_custom_mr_job_name
     
+## MySql RunBook for Cloudera retail_db
+
+######    mysql --user=retail_dba --password=cloudera --database=retail_db
+######    
+######    TRUNCATE orders_copy_01;
+######    TRUNCATE orders_copy_02;
+######    TRUNCATE orders_copy_03;
+######    TRUNCATE orders_copy_04;
+######    TRUNCATE orders_copy_05;
+######    TRUNCATE orders_copy_06;
+######    TRUNCATE orders_copy_07;
+######    TRUNCATE orders_copy_08;
+######    TRUNCATE orders_processed;
+
+######    DROP TABLE orders_copy_01;
+######    DROP TABLE orders_copy_02;
+######    DROP TABLE orders_copy_03;
+######    DROP TABLE orders_copy_04;
+######    DROP TABLE orders_copy_05;
+######    DROP TABLE orders_copy_06;
+######    DROP TABLE orders_copy_07;
+######    DROP TABLE orders_copy_08;
+######    DROP TABLE orders_processed;
+
+######    SELECT count(*) FROM orders; -- 68883
+######    CREATE TABLE orders_staging SELECT * FROM orders WHERE 1=0;
+######    CREATE TABLE orders_copy_01 SELECT * FROM orders WHERE 1=0;
+######    CREATE TABLE orders_copy_02 SELECT * FROM orders WHERE 1=0;
+######    CREATE TABLE orders_copy_03 SELECT * FROM orders WHERE 1=0;
+######    CREATE TABLE orders_copy_04 SELECT * FROM orders WHERE 1=0;
+######    CREATE TABLE orders_copy_05 SELECT * FROM orders WHERE 1=0;
+######    CREATE TABLE orders_copy_06 SELECT * FROM orders WHERE order_id > 100; -- 68783
+######    CREATE TABLE orders_copy_07 SELECT * FROM orders WHERE order_id > 100; -- 68783
+######    select * from orders_copy_07 where order_id=101;
+######    UPDATE orders_copy_07 SET order_status='COMPLETE' where order_id=101;
+######    select * from orders_copy_07 where order_id=101;
+######    CREATE TABLE orders_copy_08 SELECT * FROM orders WHERE 1=0;
+######    CREATE TABLE orders_processed SELECT * FROM orders WHERE 1=0;
+
 ## Export Data from Hadoop to RDBMS
-
-#    mysql --user=retail_dba --password=cloudera --database=retail_db
-#    
-#    TRUNCATE orders_copy_01;
-#    TRUNCATE orders_copy_02;
-#    TRUNCATE orders_copy_03;
-#    TRUNCATE orders_copy_04;
-#    TRUNCATE orders_copy_05;
-#    TRUNCATE orders_copy_06;
-#    TRUNCATE orders_copy_07;
-#    TRUNCATE orders_copy_08;
-#    TRUNCATE orders_processed;
-
-#    DROP TABLE orders_copy_01;
-#    DROP TABLE orders_copy_02;
-#    DROP TABLE orders_copy_03;
-#    DROP TABLE orders_copy_04;
-#    DROP TABLE orders_copy_05;
-#    DROP TABLE orders_copy_06;
-#    DROP TABLE orders_copy_07;
-#    DROP TABLE orders_copy_08;
-#    DROP TABLE orders_processed;
-
-#    SELECT count(*) FROM orders; -- 68883
-#    CREATE TABLE orders_staging SELECT * FROM orders WHERE 1=0;
-#    CREATE TABLE orders_copy_01 SELECT * FROM orders WHERE 1=0;
-#    CREATE TABLE orders_copy_02 SELECT * FROM orders WHERE 1=0;
-#    CREATE TABLE orders_copy_03 SELECT * FROM orders WHERE 1=0;
-#    CREATE TABLE orders_copy_04 SELECT * FROM orders WHERE 1=0;
-#    CREATE TABLE orders_copy_05 SELECT * FROM orders WHERE 1=0;
-#    CREATE TABLE orders_copy_06 SELECT * FROM orders WHERE order_id > 100; -- 68783
-#    CREATE TABLE orders_copy_07 SELECT * FROM orders WHERE order_id > 100; -- 68783
-#    select * from orders_copy_07 where order_id=101;
-#    UPDATE orders_copy_07 SET order_status='COMPLETE' where order_id=101;
-#    select * from orders_copy_07 where order_id=101;
-#    CREATE TABLE orders_copy_08 SELECT * FROM orders WHERE 1=0;
-#    CREATE TABLE orders_processed SELECT * FROM orders WHERE 1=0;
 
     sqoop export \
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
         --table orders_copy_01 \
+        --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders
     
 ## Export Data from Hadoop to RDBMS - Using JDBC Batch
@@ -379,6 +382,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders_copy_02 \
+        --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --batch
     
@@ -390,6 +394,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders_copy_03 \
+        --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders
     
 ## Export Data from Hadoop to RDBMS - Controlling No Of Statements Per Transaction
@@ -399,6 +404,7 @@ sqoop version
         --connect jdbc:mysql://quickstart:3306/retail_db \
         --username=retail_dba \
         --password=cloudera \
+        --input-fields-terminated-by \\t \
         --table orders_copy_04 \
         --export-dir=/user/hive/warehouse/import_all/orders
     
@@ -411,6 +417,7 @@ sqoop version
         --table orders_copy_05 \
         --staging-table orders_staging \
         --clear-staging-table \
+        --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders
     
 ## Updating an Existing DataSet
@@ -420,6 +427,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders_copy_06 \
+        --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --update-key order_id
     
@@ -430,6 +438,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders_copy_07 \
+        --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --update-key order_id \
         --update-mode allowinsert
@@ -441,6 +450,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders_copy_08 \
+        --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders \
         --input-null-string '\\N' \
         --input-null-non-string '\\N'
@@ -452,6 +462,7 @@ sqoop version
         --username=retail_dba \
         --password=cloudera \
         --table orders_processed \
+        --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders_processed \
         --columns order_id,order_date
     
