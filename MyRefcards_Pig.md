@@ -16,22 +16,23 @@
 ## Data Types
 
 1. Scalar Types
-	* Int
-	* Long
-	* Biginteger
-	* Float
-	* Double
-	* Bigdecimal
-	* Chararray
-	* Boolean
-	* datetime
-	* bytearray
+	* int			e.g., as (a:int)
+	* long			e.g., as (a:long)
+	* biginteger	e.g., as (a:biginteger)
+	* float			e.g., as (a:float)
+	* double		e.g., as (a:double)
+	* bigdecimal	e.g., as (a:bigdecimal)
+	* chararray		e.g., as (a:chararray)
+	* boolean		e.g., as (a:boolean)
+	* datetime		e.g., as (a:datetime)
+	* bytearray		e.g., as (a:bytearray)
 2. Complex Types
-	* MAP 
-	* TUPLE
-	* BAG
+	* MAP			e.g., as (a:map[], b:map[int])
+	* TUPLE			e.g., as (a:tuple(), b:tuple(x:int, y:int))
+	* BAG			e.g., as (a:bag{}, b:bag{t:(x:int, y:int)})
 	
 ## PigLatin Semantics
+	describe
 	load
 	group
 	foreach
@@ -50,7 +51,7 @@
 	flatten()
 	COUNT()
 	AVG()
-	
+	SUBSTRING()
 
 ## Cloudera Samples
 
