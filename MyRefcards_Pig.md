@@ -2,8 +2,8 @@
 
 ## References
 
-## 1. [Pig Documentation](http://pig.apache.org/docs/r0.16.0/)
-## 2. [Programming Pig by Alan Gates and Daniel Dai (O’Reilly).    Copyright 2017 Alan Gates and Daniel Dai, 978-1-491-93709-9.](https://www.amazon.com/Programming-Pig-Dataflow-Scripting-Hadoop/dp/1491937092)
+###### 1. [Pig Documentation](http://pig.apache.org/docs/r0.16.0/)
+###### 2. [Programming Pig by Alan Gates and Daniel Dai (O’Reilly).    Copyright 2017 Alan Gates and Daniel Dai, 978-1-491-93709-9.](https://www.amazon.com/Programming-Pig-Dataflow-Scripting-Hadoop/dp/1491937092)
 
 ## Configuring Pig on Your Hadoop Cluster
 	
@@ -31,6 +31,24 @@
 	* TUPLE			e.g., as (a:tuple(), b:tuple(x:int, y:int))
 	* BAG			e.g., as (a:bag{}, b:bag{t:(x:int, y:int)})
 	
+## How to load data
+
+	-- load the categories file
+	categories = load '/user/hive/warehouse/import_all/categories';
+	
+	-- load the tab delimited, categories file using the default PigStorage()
+	categories = load '/user/hive/warehouse/import_all/categories' using PigStorage();
+
+	-- load the comma delimited, categories file using the default PigStorage()
+	categories = load '/user/hive/warehouse/import_all/categories' using PigStorage(',');
+	
+	-- load data from HBase
+	categories = load '/user/hive/warehouse/import_all/categories' using HBaseStorage();
+	
+	-- load the categories file with specified schema
+	categories = load '/user/hive/warehouse/import_all/categories' as (category_id, category_department_id, category_name);
+	
+
 ## PigLatin Semantics
 	describe
 	load
@@ -52,6 +70,7 @@
 	COUNT()
 	AVG()
 	SUBSTRING()
+	UPPER()
 
 ## Cloudera Samples
 
