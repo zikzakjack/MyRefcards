@@ -357,13 +357,25 @@ sqoop version
 ######    CREATE TABLE orders_copy_03 SELECT * FROM orders WHERE 1=0;
 ######    CREATE TABLE orders_copy_04 SELECT * FROM orders WHERE 1=0;
 ######    CREATE TABLE orders_copy_05 SELECT * FROM orders WHERE 1=0;
-######    CREATE TABLE orders_copy_06 SELECT * FROM orders WHERE order_id > 100; -- 68783
-######    CREATE TABLE orders_copy_07 SELECT * FROM orders WHERE order_id > 100; -- 68783
-######    select * from orders_copy_07 where order_id=101;
-######    UPDATE orders_copy_07 SET order_status='COMPLETE' where order_id=101;
-######    select * from orders_copy_07 where order_id=101;
+######    CREATE TABLE orders_copy_06 SELECT * FROM orders WHERE order_id <= 100; -- 68783
+######    CREATE TABLE orders_copy_07 SELECT * FROM orders WHERE order_id <= 100; -- 68783
+######    SELECT * FROM orders_copy_07 where order_id=100;
+######    UPDATE orders_copy_07 SET order_status='COMPLETE' where order_id=100;
+######    SELECT * FROM orders_copy_07 where order_id=100;
 ######    CREATE TABLE orders_copy_08 SELECT * FROM orders WHERE 1=0;
 ######    CREATE TABLE orders_processed SELECT * FROM orders WHERE 1=0;
+
+######    SELECT count(*) FROM orders_staging;
+######    SELECT count(*) FROM orders_copy_01;
+######    SELECT count(*) FROM orders_copy_02;
+######    SELECT count(*) FROM orders_copy_03;
+######    SELECT count(*) FROM orders_copy_04;
+######    SELECT count(*) FROM orders_copy_05;
+######    SELECT count(*) FROM orders_copy_06;
+######    SELECT count(*) FROM orders_copy_07;
+######    SELECT count(*) FROM orders_copy_08;
+######    SELECT count(*) FROM orders_processed;
+
 
 ## Export Data from Hadoop to RDBMS
 
@@ -429,7 +441,7 @@ sqoop version
         --table orders_copy_06 \
         --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders \
-        --update-key order_id
+        --update-key order_id,order_date,order_customer_id,order_status
     
 ## Updating/Inserting Existing/New DataSet
 
@@ -440,7 +452,7 @@ sqoop version
         --table orders_copy_07 \
         --input-fields-terminated-by \\t \
         --export-dir=/user/hive/warehouse/import_all/orders \
-        --update-key order_id \
+        --update-key order_id,order_date,order_customer_id,order_status \
         --update-mode allowinsert
     
 ## Handling NULL Values From HDFS
