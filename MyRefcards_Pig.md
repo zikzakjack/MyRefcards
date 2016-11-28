@@ -128,6 +128,16 @@
 	categories_filtered = filter categories by category_id  == 2 or category_id  == 20;
 	dump categories_filtered;
 
+### group
+
+	-- groups records with the same key
+	categories = load '/user/hive/warehouse/import_all/categories' as (category_id, category_department_id, category_name);
+	categories_name = foreach categories generate category_department_id, UPPER(category_name) as category_name;
+	-- groups records with the same category_department_id
+	categories_dept = group categories_name by category_department_id;
+	categories_count_by_dept = foreach categories_dept generate group, COUNT(categories_name);
+	dump categories_count_by_dept;
+
 
 ## PigLatin Semantics
 	describe
