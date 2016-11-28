@@ -113,6 +113,22 @@
 	  END
 	) as gendercode;
 	
+### filter
+
+	categories = load '/user/hive/warehouse/import_all/categories' as (category_id, category_department_id, category_name);
+	categories_filtered = filter categories by category_department_id in (1,2,3,4,5);
+	dump categories_filtered;
+	
+	categories_filtered = filter categories by category_name matches 'A.*';
+	dump categories_filtered;
+
+	categories_filtered = filter categories_filtered by not category_name matches 'As.*';
+	dump categories_filtered;
+
+	categories_filtered = filter categories by category_id  == 2 or category_id  == 20;
+	dump categories_filtered;
+
+
 ## PigLatin Semantics
 	describe
 	load
