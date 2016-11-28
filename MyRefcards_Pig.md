@@ -89,6 +89,14 @@
 	dump middle;
 	dump end;
 
+#### UDFs in foreach
+
+	categories = load '/user/hive/warehouse/import_all/categories' as (category_id, category_department_id, category_name);
+	categories_name = foreach categories generate category_department_id, UPPER(category_name) as category_name;
+	categories_dept = group categories_name by category_department_id;
+	dump categories_dept;
+	
+
 ## PigLatin Semantics
 	describe
 	load
