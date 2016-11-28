@@ -48,6 +48,16 @@
 	-- load the categories file with specified schema
 	categories = load '/user/hive/warehouse/import_all/categories' as (category_id, category_department_id, category_name);
 	
+## How to store data
+
+	-- store the processed data into file using default PigStorage() function
+	store processed into '/data/examples/processed';
+
+	-- store the processed data as comma delimited file
+	store processed into 'processed' using PigStorage(',');
+	
+	-- store the processed data into file using HBaseStorage() function
+	store processed into '/data/examples/processed' using HBaseStorage();
 
 ## PigLatin Semantics
 	describe
