@@ -96,7 +96,23 @@
 	categories_dept = group categories_name by category_department_id;
 	dump categories_dept;
 	
+#### CASE expressions
 
+	processed = FOREACH loaded GENERATE (
+	  CASE i
+	       WHEN 0 THEN 'one'
+	       WHEN 1 THEN 'two'
+	       ELSE 'three'
+	  END
+	);
+	
+	processed = FOREACH loaded GENERATE (
+	  CASE UPPER(gender)
+	       WHEN UPPER('m') THEN 1
+	       WHEN UPPER('f') THEN 2
+	  END
+	) as gendercode;
+	
 ## PigLatin Semantics
 	describe
 	load
