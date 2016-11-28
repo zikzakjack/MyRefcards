@@ -63,6 +63,32 @@
 
 	dump processed;
 
+## Relational Operations
+
+### foreach
+
+	categories = load '/user/hive/warehouse/import_all/categories' as (category_id, category_department_id, category_name);
+	categories_id_name = foreach categories generate category_id, category_name;
+	dump categories_id_name;
+
+#### Expressions in foreach
+
+	order_items = load '/user/hive/warehouse/import_all/order_items' as (order_item_id, order_item_order_id, order_item_product_id, order_item_quantity, order_item_subtotal, order_item_product_price);
+	order_items_promotion_1 = foreach order_items generate order_item_product_id, order_item_quantity + 1;
+	order_items_promotion_2 = foreach order_items generate order_item_product_id, $3 + 2;
+	dump order_items_promotion_1;
+	dump order_items_promotion_2;
+
+#### Projection in foreach
+
+	order_items = load '/user/hive/warehouse/import_all/order_items' as (order_item_id, order_item_order_id, order_item_product_id, order_item_quantity, order_item_subtotal, order_item_product_price);
+	beginning = foreach order_items generate ..order_item_product_id; -- produces order_item_id, order_item_order_id, order_item_product_id
+	middle    = foreach order_items generate order_item_order_id..order_item_quantity; -- produces order_item_order_id, order_item_product_id, order_item_quantity
+	end       = foreach order_items generate order_item_quantity..; -- produces order_item_quantity, order_item_subtotal, order_item_product_price
+	dump beginning;
+	dump middle;
+	dump end;
+
 ## PigLatin Semantics
 	describe
 	load
