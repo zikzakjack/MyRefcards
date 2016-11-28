@@ -59,6 +59,10 @@
 	-- store the processed data into file using HBaseStorage() function
 	store processed into '/data/examples/processed' using HBaseStorage();
 
+## How to display the output in screen
+
+	dump processed;
+
 ## PigLatin Semantics
 	describe
 	load
