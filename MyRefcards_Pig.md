@@ -138,6 +138,14 @@
 	categories_count_by_dept = foreach categories_dept generate group, COUNT(categories_name);
 	dump categories_count_by_dept;
 
+	-- group on multiple keys
+	customers = load '/user/hive/warehouse/import_all/customers' as (customer_id, customer_fname, customer_lname, customer_email, customer_password, customer_street, customer_city, customer_state, customer_zipcode);
+	customers_by_state_zip = group customers by (customer_state, customer_zipcode);
+	dump customers_by_state_zip;
+	describe customers_by_state_zip;
+	customers_count_by_state_zip = foreach customers_by_state_zip generate group, COUNT(customers.customer_id);
+	dump customers_count_by_state_zip;
+	
 
 ## PigLatin Semantics
 	describe
@@ -158,6 +166,7 @@
 	TOKENIZE()
 	flatten()
 	COUNT()
+	COUNT_STAR()
 	AVG()
 	SUBSTRING()
 	UPPER()
