@@ -158,6 +158,26 @@
 	order_by_deptDescAndNameAsc = order categories by category_department_id desc, category_name;
 	dump order_by_deptDescAndNameAsc;
 
+### distinct
+
+	-- create sample file
+	sh echo "1,One" >> /home/cloudera/distinctSample.dat
+	sh echo "2,Two" >> /home/cloudera/distinctSample.dat
+	sh echo "2,Two" >> /home/cloudera/distinctSample.dat
+	sh echo "3,Three" >> /home/cloudera/distinctSample.dat
+	sh echo "3,Three" >> /home/cloudera/distinctSample.dat
+	sh echo "3,Three" >> /home/cloudera/distinctSample.dat
+	sh cat /home/cloudera/distinctSample.dat
+
+	- push it to hdfs
+	fs -put distinctSample.dat /user/cloudera/distinctSample.dat
+	fs -ls /user/cloudera/distinctSample.dat
+	
+	-- pig distinct demo
+	numbers = load '/user/cloudera/distinctSample.dat' using PigStorage(',') as (num, description); 
+	dump numbers;
+	distinctNumbers = distinct numbers;
+	dump distinctNumbers;
 
 ## PigLatin Semantics
 	describe
