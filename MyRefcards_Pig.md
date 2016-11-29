@@ -146,6 +146,18 @@
 	customers_count_by_state_zip = foreach customers_by_state_zip generate group, COUNT(customers.customer_id);
 	dump customers_count_by_state_zip;
 	
+### order by
+
+	categories = load '/user/hive/warehouse/import_all/categories' as (category_id, category_department_id, category_name);
+	order_by_name = order categories by category_name;
+	dump order_by_name;
+	
+	order_by_deptAndName = order categories by category_department_id, category_name;
+	dump order_by_deptAndName;
+
+	order_by_deptDescAndNameAsc = order categories by category_department_id desc, category_name;
+	dump order_by_deptDescAndNameAsc;
+
 
 ## PigLatin Semantics
 	describe
