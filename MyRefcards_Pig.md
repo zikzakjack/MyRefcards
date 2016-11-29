@@ -179,6 +179,21 @@
 	distinctNumbers = distinct numbers;
 	dump distinctNumbers;
 
+### join
+
+	categories = load '/user/hive/warehouse/import_all/categories' as (category_id, category_department_id, category_name);
+	departments = load '/user/hive/warehouse/import_all/departments' as (department_id, department_name);
+	join_dept_catg = join departments by department_id, categories by category_department_id;
+	describe categories;	
+	describe departments;	
+	describe join_dept_catg;	
+	dump join_dept_catg;
+	join_dept_catg_ordered = order join_dept_catg by department_id, department_name, category_id; 
+	dump join_dept_catg_ordered;
+	describe join_dept_catg_ordered;
+	join_dept_catg_ordered_projected = foreach join_dept_catg_ordered generate department_id, department_name, category_id, category_name;
+	dump join_dept_catg_ordered_projected;
+	
 ## PigLatin Semantics
 	describe
 	load
