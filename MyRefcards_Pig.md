@@ -194,19 +194,14 @@
 	join_dept_catg_ordered_projected = foreach join_dept_catg_ordered generate department_id, department_name, category_id, category_name;
 	dump join_dept_catg_ordered_projected;
 	
-## PigLatin Semantics
-	describe
-	load
-	group
-	foreach
-	generate group
-	join
-	dump
-	filter
-	group
-	order
-	limit
-	store
+### limit
+
+	categories = load '/user/hive/warehouse/import_all/categories' as (category_id:long, category_department_id:long, category_name:chararray);
+	dump categories;
+	categories_first10 = order categories by category_id;
+	dump categories_first10;
+	categories_first10 = limit categories_first10 10;
+	dump categories_first10;
 
 ## PigLatin Functions
 	SUM()
