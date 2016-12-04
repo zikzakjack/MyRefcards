@@ -78,6 +78,67 @@
 	* M[key]
 	* S.a
 	
+## Hive Data Definition Language
+	
+### Creating a database schema
+
+	
+### Dropping a database schema
+
+	
+### Altering a database schema
+
+	
+### Using a database schema
+
+	
+### Showing database schemas
+
+	
+### Describing a database schema
+
+	
+### Creating tables
+
+	
+### Dropping tables
+
+	
+### Truncating tables
+
+	
+### Renaming tables
+
+	
+### Altering table properties
+
+	
+### Creating viewsDropping views
+
+	
+### Altering the view properties
+
+	
+### Altering the view as select
+
+	
+### Showing tables
+
+	
+### Showing partitions
+
+	
+### Show the table properties
+
+	
+### Showing create table
+
+	
+### HCatalog
+
+	
+### WebHCat
+
 ## Partitioning
 
 	Partitioning in Hive is used to increase query performance. Partitions are like horizontal slices of data that allows the large sets of data as more manageable chunks.
