@@ -120,54 +120,102 @@
 	
 ### Creating tables
 
+	    sqoop import \
+        -m 1 \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table customers \
+        --fields-terminated-by \\t \
+        --warehouse-dir=/user/hive/warehouse/retail_dba
+        
+        show databases;
+        use retail_dba;
+        
+        create external table customers 
+        (customer_id BIGINT, customer_fname STRING, customer_lname STRING, customer_email STRING, customer_password STRING, customer_street STRING, customer_city STRING, customer_state STRING, customer_zipcode STRING)
+        ROW FORMAT DELIMITED
+        FIELDS TERMINATED BY '\t'
+        LINES TERMINATED BY '\n'
+        LOCATION '/user/hive/warehouse/retail_dba/customers';
 	
 ### Dropping tables
 
+	-- data is saved into the Trash folder
+	Drop table if exists customers;
+	
+	-- data is not saved into the Trash folder and lost forever
+	Drop table if exists customers purge;
 	
 ### Truncating tables
 
+	Truncate table customers;
 	
 ### Renaming tables
 
+	ALTER TABLE customers RENAME TO customers_sav_20161204;
+	ALTER TABLE customers_sav_20161204 RENAME TO customers;
 	
 ### Altering table properties
 
+	Alter Table customers_sav_20161204 SET TBLPROPERTIES ('comment' = 'This is a backup for 2016-12-04 data');
 	
-### Creating viewsDropping views
+### Creating views
 
+	Create view customers_full_view As select * from customers;
+	Create view if not exists customers_CA AS select customer_id, customer_fname, customer_lname, customer_street, customer_city from customers Where customer_state = 'CA';
+
+### Dropping views
+
+	Drop view customers_full_view;
 	
 ### Altering the view properties
 
+	Alter View customers_CA SET TBLPROPERTIES ('comment' = 'California Customers');
 	
 ### Altering the view as select
 
+	alter view customers_CA as select customer_id, customer_street, customer_city from customers;
 	
 ### Showing tables
 
+	Show tables;
+	Show tables in retail_dba;
+	Show tables 'cus*';
 	
 ### Showing partitions
 
+	Show partitions customers;
+	Show partitions Sales partition(dop='2015-01-01');
+	
 	
 ### Show the table properties
 
+	Show tblproperties Sales;
 	
 ### Showing create table
 
+	Show create table customers;
 	
-### HCatalog
-
-	
-### WebHCat
-
-## Partitioning
+### Creating partitions
 
 	Partitioning in Hive is used to increase query performance. Partitions are like horizontal slices of data that allows the large sets of data as more manageable chunks.
 	
-	-- Partition by country
-	CREATE TABLE customer(id STRING, name STRING, gender STRING, state STRING) PARTITIONED BY (country STRING);
+	-- Partition by state
+	CREATE TABLE customers_partitioned
+        (customer_id BIGINT, customer_fname STRING, customer_lname STRING, customer_email STRING, customer_password STRING, customer_street STRING, customer_city STRING, customer_zipcode STRING)
+        PARTITIONED BY (customer_state STRING)
+        ROW FORMAT DELIMITED
+        FIELDS TERMINATED BY '\t'
+        LINES TERMINATED BY '\n';
 	
-	-- Multiple Partitions by country, state
-	CREATE TABLE customer(id STRING, name STRING, gender STRING) PARTITIONED BY (country STRING, state STRING);
+	-- Multiple Partitions by state, city
+	CREATE TABLE customers_multiple_partitioned
+        (customer_id BIGINT, customer_fname STRING, customer_lname STRING, customer_email STRING, customer_password STRING, customer_street STRING, customer_zipcode STRING)
+        PARTITIONED BY (customer_state STRING, customer_city STRING)
+        ROW FORMAT DELIMITED
+        FIELDS TERMINATED BY '\t'
+        LINES TERMINATED BY '\n';
 
 	-- How to prevent full table scan query
 	hive> set hive.mapred.mode=strict;
@@ -176,7 +224,8 @@
 	hive> set hive.mapred.mode=nonstrict;
 	
 	-- List Partitions of a table
-	SHOW PARTITIONS customer;
+	SHOW PARTITIONS customers_partitioned;
+	SHOW PARTITIONS customers_multiple_partitioned;
 	
 	-- Partition filters
 	SHOW PARTITIONS customer PARTITION(country = 'US');
