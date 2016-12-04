@@ -82,21 +82,41 @@
 	
 ### Creating a database schema
 
+	CREATE DATABASE retail_dba LOCATION '/user/hive/warehouse/retail_dba/';
 	
 ### Dropping a database schema
 
+	-- Drop Database. Error will be thrown if the database does not exist
+	Drop database retail_dba;
+	
+	-- Drop Database. Error will not be thrown if the database does not exist
+	Drop database if exists retail_dba;
+	
+	-- Drop Database. Error will be thrown if the database is not empty
+	Drop database if exists retail_dba restrict;
+	
+	-- Drop Database. if the database is not empty, all tables are dropped before dropping the database
+	Drop database if exists retail_dba cascade;
+	
 	
 ### Altering a database schema
 
+	Alter database retail_dba set dbproperties ('Created by' = 'zik-zak-jack', 'Created on' = '04-Dec-2016');
 	
 ### Using a database schema
-
+	
+	Use retail_dba;
 	
 ### Showing database schemas
 
+	Show databases;
 	
 ### Describing a database schema
 
+	Describe schema retail_dba;
+	
+	Describe schema extended retail_dba;
+	
 	
 ### Creating tables
 
