@@ -31,6 +31,53 @@
 	* MAP				e.g., 
 	* ARRAY				e.g., 
 	
+## Operators
+
+1. Arithmetic Operators
+	* A + B
+	* A - B
+	* A * B
+	* A / B
+	* A % B
+	* A & B
+	* A | B
+	* A ^ B
+	* ~B
+2. Relational Operators
+	* A = B
+	* A != B
+	* A <=> B
+	* A <> B
+	* A < B
+	* A <= B
+	* A > B
+	* A >= B
+	* A BETWEEN B AND C
+	* A NOT BETWEEN B AND C
+	* A IS NULL
+	* A IS NOT NULL
+	* A LIKE B
+	* A NOT LIKE B
+	* A RLIKE B
+	* A REGEXP B
+3. Logical Operators
+	* A AND B
+	* A && B
+	* A OR B
+	* A || B
+	* NOT A
+	* !A
+	* A IN (value1, value2, …)
+	* A IN (SUBQUERY)
+	* A NOT IN (value1, value2, …)
+	* A NOT IN (subquery)
+	* EXISTS (subquery)
+	* NOT EXISTS (subquery)
+4. Complex Operators
+	* A[i]
+	* M[key]
+	* S.a
+	
 ## Beeline
 
 	beeline -u 'jdbc:hive2://localhost:10000/default' -n root -p xxx -d org.apache.hive.jdbc.HiveDriver -e "select * from sales;"
