@@ -78,6 +78,38 @@
 	* M[key]
 	* S.a
 	
+## Partitioning
+
+	Partitioning in Hive is used to increase query performance. Partitions are like horizontal slices of data that allows the large sets of data as more manageable chunks.
+	
+	-- Partition by country
+	CREATE TABLE customer(id STRING, name STRING, gender STRING, state STRING) PARTITIONED BY (country STRING);
+	
+	-- Multiple Partitions by country, state
+	CREATE TABLE customer(id STRING, name STRING, gender STRING) PARTITIONED BY (country STRING, state STRING);
+
+	-- How to prevent full table scan query
+	hive> set hive.mapred.mode=strict;
+	
+	-- How to allow full table scan query
+	hive> set hive.mapred.mode=nonstrict;
+	
+	-- List Partitions of a table
+	SHOW PARTITIONS customer;
+	
+	-- Partition filters
+	SHOW PARTITIONS customer PARTITION(country = 'US');
+	SHOW PARTITIONS customer PARTITION(country = 'US', state='DC');
+	
+## Bucketing
+	
+	-- Enable Buketing
+	set hive.enforce.bucketing=true;
+	
+	CREATE TABLE sales_bucketed (id INT, fname STRING, lname STRING, address STRING,city STRING,state STRING, zip STRING, IP STRING, prod_id STRING, date1 STRING) CLUSTERED BY (id) INTO 10 BUCKETS;
+	INSERT INTO sales_bucketed SELECT * from sales;
+	
+
 ## Beeline
 
 	beeline -u 'jdbc:hive2://localhost:10000/default' -n root -p xxx -d org.apache.hive.jdbc.HiveDriver -e "select * from sales;"
