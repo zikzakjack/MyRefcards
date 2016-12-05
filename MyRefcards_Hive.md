@@ -209,6 +209,8 @@
         FIELDS TERMINATED BY '\t'
         LINES TERMINATED BY '\n';
 	
+	insert into customers_partitioned PARTITION (customer_state) select customer_id , customer_fname , customer_lname , customer_email , customer_password , customer_street , customer_city , customer_zipcode, customer_state from customers;
+	
 	-- Multiple Partitions by state, city
 	CREATE TABLE customers_multiple_partitioned
         (customer_id BIGINT, customer_fname STRING, customer_lname STRING, customer_email STRING, customer_password STRING, customer_street STRING, customer_zipcode STRING)
@@ -217,11 +219,25 @@
         FIELDS TERMINATED BY '\t'
         LINES TERMINATED BY '\n';
 
+	insert into customers_multiple_partitioned PARTITION (customer_state, customer_city) select customer_id , customer_fname , customer_lname , customer_email , customer_password , customer_street  , customer_zipcode, customer_state, customer_city from customers;
+
 	-- How to prevent full table scan query
 	hive> set hive.mapred.mode=strict;
 	
 	-- How to allow full table scan query
 	hive> set hive.mapred.mode=nonstrict;
+	
+	-- to allow dynamic partitions insert
+	hive> hive.exec.dynamic.partition=true
+	
+	-- default is strict which requires atleast one static partition to be present
+	hive> set hive.exec.dynamic.partition.mode=nonstrict
+	
+	-- max partitions that can be created by mapper or reducer per node
+	hive>set hive.exec.max.dynamic.partitions.pernode=1000
+	
+	-- max partitions that can be created
+	hive> set hive.exec.max.dynamic.partitions
 	
 	-- List Partitions of a table
 	SHOW PARTITIONS customers_partitioned;
