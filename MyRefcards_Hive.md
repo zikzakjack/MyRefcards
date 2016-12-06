@@ -264,6 +264,30 @@
 	
 ## Data Manipulation Language
 	
+	-- prep test data
+	-- 1. export the data to hdfs
+
+	sqoop import \
+        -m 1 \
+        --connect jdbc:mysql://quickstart:3306/retail_db \
+        --username=retail_dba \
+        --password=cloudera \
+        --table categories  \
+        --fields-terminated-by \\t \
+        --warehouse-dir=/user/cloudera/zikzakjack/data/retail_db/
+	
+	-- 2. copy the data to local filesystem
+	
+	hdfs dfs -copyToLocal /user/cloudera/zikzakjack/data/retail_db/categories /home/cloudera/ZikZakJack/retail_db
+	
+	-- 3. create the table structure in hive
+	
+	CREATE TABLE categories
+        (category_id BIGINT, category_name STRING)
+        PARTITIONED BY (category_department_id BIGINT)
+        ROW FORMAT DELIMITED
+        FIELDS TERMINATED BY '\t'
+        LINES TERMINATED BY '\n';
 	
 ### Loading files into tables
 	
