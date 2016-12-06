@@ -247,7 +247,7 @@
 	SHOW PARTITIONS customer PARTITION(country = 'US');
 	SHOW PARTITIONS customer PARTITION(country = 'US', state='DC');
 	
-## Bucketing
+### Bucketing
 	
 	-- Enable Bucketing
 	set hive.enforce.bucketing=true;
@@ -261,6 +261,33 @@
         LINES TERMINATED BY '\n';
 
 	INSERT INTO customers_bucketed SELECT * from customers;
+	
+## Data Manipulation Language
+	
+	
+### Loading files into tables
+	
+	
+### Inserting data into Hive tables from queries
+	
+	
+### Inserting data into dynamic partitions
+	
+	
+### Writing data into files from queries
+	
+	
+### Enabling transactions in Hive
+	
+	
+### Inserting values into tables from SQL
+	
+	
+### Updating data
+	
+	
+### Deleting data
+	
 	
 
 ## Beeline
