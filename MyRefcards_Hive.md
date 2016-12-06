@@ -252,8 +252,13 @@
 	-- Enable Buketing
 	set hive.enforce.bucketing=true;
 	
-	CREATE TABLE sales_bucketed (id INT, fname STRING, lname STRING, address STRING,city STRING,state STRING, zip STRING, IP STRING, prod_id STRING, date1 STRING) CLUSTERED BY (id) INTO 10 BUCKETS;
-	INSERT INTO sales_bucketed SELECT * from sales;
+        CREATE TABLE customers_bucketed (customer_id BIGINT, customer_fname STRING, customer_lname STRING, customer_email STRING, customer_password STRING, customer_street STRING, customer_city STRING, customer_state STRING, customer_zipcode STRING) 
+        CLUSTERED BY (customer_id) INTO 5 BUCKETS
+        ROW FORMAT DELIMITED
+        FIELDS TERMINATED BY '\t'
+        LINES TERMINATED BY '\n';
+;
+	INSERT INTO customers_bucketed SELECT * from customers;
 	
 
 ## Beeline
