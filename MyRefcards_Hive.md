@@ -278,19 +278,42 @@
 	
 	-- 2. copy the data to local filesystem
 	
-	hdfs dfs -copyToLocal /user/cloudera/zikzakjack/data/retail_db/categories /home/cloudera/ZikZakJack/retail_db
+	hdfs dfs -copyToLocal /user/cloudera/zikzakjack/data/retail_db/categories/part-m-00000 /home/cloudera/ZikZakJack/retail_db/categories.txt
+	
+	-- verify the local file
+	cat /home/cloudera/ZikZakJack/retail_db/categories.txt
 	
 	-- 3. create the table structure in hive
 	
 	CREATE TABLE categories
-        (category_id BIGINT, category_name STRING)
-        PARTITIONED BY (category_department_id BIGINT)
+        (category_id BIGINT, category_department_id BIGINT, category_name STRING)
         ROW FORMAT DELIMITED
         FIELDS TERMINATED BY '\t'
         LINES TERMINATED BY '\n';
 	
 ### Loading files into tables
 	
+	-- load data from local file to Hive table
+	cat /home/cloudera/ZikZakJack/retail_db/categories.txt
+	wc -l /home/cloudera/ZikZakJack/retail_db/categories.txt
+	hive> describe categories;
+	hive> LOAD DATA LOCAL INPATH '/home/cloudera/ZikZakJack/retail_db/categories.txt' INTO TABLE categories;
+	hdfs dfs -ls /user/hive/warehouse/categories/
+	hive> select count(*) from categories;
+	hive> truncate table categories;
+	
+	-- load data from hdfs file to Hive table
+	hdfs dfs -ls /user/cloudera/zikzakjack/data/retail_db/categories/part-m-00000
+	hive> describe categories;
+	hive> LOAD DATA INPATH '/user/cloudera/zikzakjack/data/retail_db/categories/part-m-00000' INTO TABLE categories;
+	hdfs dfs -ls /user/hive/warehouse/categories/
+	hive> select count(*) from categories;
+
+	-- overwrite the data present in the categories
+	hive> select count(*) from categories;
+	hive> LOAD DATA LOCAL INPATH '/home/cloudera/ZikZakJack/retail_db/categories.txt' OVERWRITE INTO TABLE categories;
+	hive> select count(*) from categories;
+
 	
 ### Inserting data into Hive tables from queries
 	
