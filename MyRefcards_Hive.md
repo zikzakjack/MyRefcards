@@ -317,6 +317,17 @@
 	
 ### Inserting data into Hive tables from queries
 	
+	CREATE TABLE categories_copy AS SELECT * FROM categories WHERE 1=0;
+	select count(*) from categories_copy;
+	INSERT INTO categories_copy SELECT * FROM categories;
+	select count(*) from categories_copy;
+	SELECT count(*) FROM categories WHERE category_department_id = 6;
+	INSERT INTO categories_copy SELECT * FROM categories WHERE category_department_id = 6;
+	select count(*) from categories_copy;
+	INSERT OVERWRITE TABLE categories_copy SELECT * FROM categories;
+	select count(*) from categories_copy;
+	INSERT OVERWRITE TABLE categories_copy SELECT * FROM categories WHERE category_id = 1;
+	select count(*) from categories_copy;
 	
 ### Inserting data into dynamic partitions
 	
