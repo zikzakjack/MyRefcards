@@ -228,16 +228,16 @@
 	hive> set hive.mapred.mode=nonstrict;
 	
 	-- to allow dynamic partitions insert
-	hive> hive.exec.dynamic.partition=true
+	hive> hive.exec.dynamic.partition=true;
 	
 	-- default is strict which requires atleast one static partition to be present
-	hive> set hive.exec.dynamic.partition.mode=nonstrict
+	hive> set hive.exec.dynamic.partition.mode=nonstrict;
 	
 	-- max partitions that can be created by mapper or reducer per node
-	hive>set hive.exec.max.dynamic.partitions.pernode=1000
+	hive>set hive.exec.max.dynamic.partitions.pernode=1000;
 	
 	-- max partitions that can be created
-	hive> set hive.exec.max.dynamic.partitions
+	hive> set hive.exec.max.dynamic.partitions=10000;
 	
 	-- List Partitions of a table
 	SHOW PARTITIONS customers_partitioned;
@@ -331,6 +331,27 @@
 	
 ### Inserting data into dynamic partitions
 	
+	CREATE TABLE customers_partitioned_01
+        (customer_id BIGINT, customer_fname STRING, customer_lname STRING, customer_email STRING, customer_password STRING, customer_street STRING, customer_city STRING, customer_zipcode STRING)
+        PARTITIONED BY (customer_state STRING)
+        ROW FORMAT DELIMITED
+        FIELDS TERMINATED BY '\t'
+        LINES TERMINATED BY '\n';
+	
+	FROM customers_bucketed cust INSERT OVERWRITE TABLE customers_partitioned_01 PARTITION(customer_state) select cust.customer_id , cust.customer_fname , cust.customer_lname , cust.customer_email , cust.customer_password , cust.customer_street , cust.customer_city, cust.customer_zipcode, customer_state;
+	
+	select count(*) from customers_partitioned_01;
+	
+	CREATE TABLE customers_multiple_partitioned_01
+        (customer_id BIGINT, customer_fname STRING, customer_lname STRING, customer_email STRING, customer_password STRING, customer_street STRING, customer_zipcode STRING)
+        PARTITIONED BY (customer_state STRING, customer_city STRING)
+        ROW FORMAT DELIMITED
+        FIELDS TERMINATED BY '\t'
+        LINES TERMINATED BY '\n';
+
+	FROM customers_bucketed cust INSERT OVERWRITE TABLE customers_multiple_partitioned_01 PARTITION(customer_state, customer_city) select cust.customer_id , cust.customer_fname , cust.customer_lname , cust.customer_email , cust.customer_password , cust.customer_street , cust.customer_city, cust.customer_zipcode, customer_state;
+
+	select count(*) from customers_multiple_partitioned_01;
 	
 ### Writing data into files from queries
 	
