@@ -1,2 +1,2 @@
-# Java Persistence annotations
+# Javax Persistence annotations
 
