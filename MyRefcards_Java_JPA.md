@@ -1,7 +1,7 @@
 # Javax Persistence annotations
 
 
-Annotation Name							|	Applied to 	|	Description
+Annotation								|	Applied to	|	Description
 ----------------------------------------|---------------|--------------------------
 @Entity									|	Class		|	Specifies that the class is an entity
 
