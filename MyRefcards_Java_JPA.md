@@ -8,7 +8,8 @@ Annotation								|	Applied to	|	Description
 @Access									|	Class		|	
 @Id										|	Field		|	
 @Column									|	Field		|	
-@GeneratedValue							|	Field		|	Applied to a primary key property or field of an entity
+@GeneratedValue							|	Field		|	* Applied to a primary key property or field of an entity
+															* @GeneratedValue(strategy=SEQUENCE, generator="CUST_SEQ")
 @SequenceGenerator						|	Field		|	
 @Basic									|	Field		|	
 
