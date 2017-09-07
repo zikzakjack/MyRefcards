@@ -8,7 +8,7 @@ Annotation								|	Applied to	|	Description
 @Access									|	Class		|	
 @Id										|	Field		|	
 @Column									|	Field		|	
-@GeneratedValue							|	Field		|	<ul><li>Applied to a primary key property or field of an entity</li><li>@GeneratedValue(strategy=SEQUENCE, generator="CUST_SEQ")</li></ul>
+@GeneratedValue							|	Field		|	<ul><li>Applied to a primary key property or field of an entity</li><li>@GeneratedValue( strategy = GenerationType.IDENTITY )</li><li>@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "appUsersSeq" ) @SequenceGenerator( name = "appUsersSeq", sequenceName = "APP_USERS_SEQ", allocationSize = 1, initialValue = 1 )</li><li>@GeneratedValue(strategy=TABLE, generator="CUST_GEN")</li></ul>
 @SequenceGenerator						|	Field		|	
 @Basic									|	Field		|	
 
