@@ -2,13 +2,13 @@
 
 I intend to use this repo to archive my refcards which would be frequently used in day to day routines.
 
-. [Linux](MyRefcards_Linux.md)
-. [Git](MyRefcards_Git.md)
-. [BigData - Hive](MyRefcards_Hive.md)
-. [BigData - Pig](MyRefcards_Pig.md)
-. [BigData - Sqoop](MyRefcards_Sqoop.md)
-. [Java - JPA](MyRefcards_Java_JPA.md)
-. [Java - Spring](MyRefcards_Spring.md)
+1. [Linux](MyRefcards_Linux.md)
+2. [Git](MyRefcards_Git.md)
+3. [BigData - Hive](MyRefcards_Hive.md)
+4. [BigData - Pig](MyRefcards_Pig.md)
+5. [BigData - Sqoop](MyRefcards_Sqoop.md)
+6. [Java - JPA](MyRefcards_Java_JPA.md)
+7. [Java - Spring](MyRefcards_Spring.md)
 
 Wiki Tips : 
 
