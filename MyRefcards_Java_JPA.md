@@ -1,5 +1,15 @@
 # Javax Persistence annotations
 
+## ORM Impedance MisMatch
+
+Mismatch				|	Explanation	
+------------------------|---------------
+Granularity MisMatch	|	Object Model is more granular than the Relational Model
+Inheritance MisMatch	|	Inheritance hierarchy is in Object Model but not in Relational Model
+Identity MisMatch 		|	Object Identity & Equality concepts in Object Model vs Primary Key constraint in Relational Model
+Association MisMatch	|	Object References in Object Model vs Foreign Key references in Relational Moadel
+Data Navigation			|	Navigate the Object graph vs SQL Joins
+
 
 Annotation								|	Applied to	|	Description
 ----------------------------------------|---------------|--------------------------
