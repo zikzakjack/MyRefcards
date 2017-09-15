@@ -1,4 +1,4 @@
-# Javax Persistence annotations
+# JPA
 
 ## ORM Impedance MisMatch
 
@@ -10,6 +10,8 @@ Identity MisMatch 		|	Object Identity & Equality concepts in Object Model vs Pri
 Association MisMatch	|	Object References in Object Model vs Foreign Key references in Relational Moadel
 Data Navigation			|	Navigate the Object graph vs SQL Joins
 
+
+## JPA Persistence annotations
 
 Annotation								|	Applied to	|	Description
 ----------------------------------------|---------------|--------------------------
