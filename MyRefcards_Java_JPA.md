@@ -15,6 +15,14 @@ Data Navigation			|	Navigate the Object graph vs SQL Joins
 - Aggregation : When the whole is destroyed, its parts are not destroyed. E.g., When the Band is destroyed, its Artists are not destroyed
 - Composition : When the whole is destroyed, its parts are also destroyed. E.g., When the House is destroyed, its Rooms are also destroyed
 
+## Entity & Value Types
+
+- Entity
+-- An Object of Entity type has its own database identity (Primary Key)
+- Value
+-- An Object of Value type has no database identity (Primary Key). It belongs to an entity
+-- Lifecycle of a Value type is bound to owning entity
+-- Value type objects are identified through the owning entity
 
 ## JPA Persistence annotations
 
