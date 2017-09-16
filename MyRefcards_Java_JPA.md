@@ -32,6 +32,8 @@ Annotation								|	Applied to	|	Description
 @Table									|	Class		|	Specifies the primary table for the annotated entity. Additional tables may be specified using SecondaryTable or SecondaryTables annotation.
 @Embeddable								|	Class		|	Specifies a class whose instances are stored as an intrinsic part of an owning entity and share the identity of the entity. Each of the persistent properties or fields of the embedded object is mapped to the database table for the entity.
 @Embedded								|	Field		|	Specifies a persistent field or property of an entity whose value is an instance of an embeddable class. The embeddable class must be annotated as Embeddable.
+@AttributeOverrides						|	Field		|	Used to override mappings of multiple properties or fields.
+@AttributeOverride						|	Field		|	Applied to an embedded field or property to override the mapping defined by the embeddable class. If AttributeOverride is not specified, the column is mapped the same as in the original mapping.
 @Access									|	Class		|	
 @Id										|	Field		|	
 @Column									|	Field		|	
