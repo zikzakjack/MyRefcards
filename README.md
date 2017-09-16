@@ -8,7 +8,7 @@ I intend to use this repo to archive my refcards which would be frequently used 
 4. [BigData - Pig](MyRefcards_BigData_Pig.md)
 5. [BigData - Sqoop](MyRefcards_BigData_Sqoop.md)
 6. [Java - JPA](MyRefcards_Java_JPA.md)
-7. [Java - Spring](MyRefcards_Spring.md)
+7. [Java - Spring](MyRefcards_Java_Spring.md)
 
 Wiki Tips : 
 
