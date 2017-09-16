@@ -47,3 +47,9 @@ Annotation								|	Applied to	|	Description
 @Temporal								|	Field		|	<ul><li>Specified for persistent fields or properties of type java.util.Date and java.util.Calendar</li><li>TemporalType.DATE - Map as java.sql.Date</li><li>TemporalType.TIME - Map as java.sql.Time</li><li>TemporalType.TIMESTAMP - Map as java.sql.Timestamp</li></ul>
 @Basic									|	Field		|	
 
+## JPA Persistence enums
+
+enum								|	Description
+------------------------------------|--------------------------
+@CascadeType						|	Defines the set of cascadable operations that are propagated to the associated entity. The value cascade=ALL is equivalent to cascade={PERSIST, MERGE, REMOVE, REFRESH, DETACH}.
+
