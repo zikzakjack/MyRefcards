@@ -31,6 +31,7 @@ Annotation								|	Applied to	|	Description
 @Entity									|	Class		|	Specifies that the class is an entity
 @Table									|	Class		|	Specifies the primary table for the annotated entity. Additional tables may be specified using SecondaryTable or SecondaryTables annotation.
 @Embeddable								|	Class		|	Specifies a class whose instances are stored as an intrinsic part of an owning entity and share the identity of the entity. Each of the persistent properties or fields of the embedded object is mapped to the database table for the entity.
+@Embedded								|	Field		|	Specifies a persistent field or property of an entity whose value is an instance of an embeddable class. The embeddable class must be annotated as Embeddable.
 @Access									|	Class		|	
 @Id										|	Field		|	
 @Column									|	Field		|	
