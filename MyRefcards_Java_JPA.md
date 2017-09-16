@@ -29,7 +29,8 @@ Data Navigation			|	Navigate the Object graph vs SQL Joins
 Annotation								|	Applied to	|	Description
 ----------------------------------------|---------------|--------------------------
 @Entity									|	Class		|	Specifies that the class is an entity
-@Table									|	Class		|	
+@Table									|	Class		|	Specifies the primary table for the annotated entity. Additional tables may be specified using SecondaryTable or SecondaryTables annotation.
+@Embeddable								|	Class		|	Specifies a class whose instances are stored as an intrinsic part of an owning entity and share the identity of the entity. Each of the persistent properties or fields of the embedded object is mapped to the database table for the entity.
 @Access									|	Class		|	
 @Id										|	Field		|	
 @Column									|	Field		|	
