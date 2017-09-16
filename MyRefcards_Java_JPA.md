@@ -10,6 +10,11 @@ Identity MisMatch 		|	Object Identity & Equality concepts in Object Model vs Pri
 Association MisMatch	|	Object References in Object Model vs Foreign Key references in Relational Moadel
 Data Navigation			|	Navigate the Object graph vs SQL Joins
 
+## Aggregation & Composition
+
+- Aggregation : When the whole is destroyed, its parts are not destroyed. E.g., When the Band is destroyed, its Artists are not destroyed
+- Composition : When the whole is destroyed, its parts are also destroyed. E.g., When the House is destroyed, its Rooms are also destroyed
+
 
 ## JPA Persistence annotations
 
