@@ -3,15 +3,11 @@
 
 # Table of Contents
 
-1. [A Short History of Git](#A Short History of Git)
-
-2. [Git Basics](#Git Basics)
-
-3. [Three states of Git](#Three states of Git)
-
-4. [Github Project Setup](#Github Project Setup)
-
-4. [Git Basic Commands](#Git Basic Commands)
+1. [A Short History of Git](#A-Short-History-of-Git)
+2. [Git Basics](#Git-Basics)
+3. [Three states of Git](#Three-states-of-Git)
+4. [Github Project Setup](#Github-Project-Setup)
+4. [Git Basic Commands](#Git-Basic-Commands)
 
 
 ## A Short History of Git
