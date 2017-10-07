@@ -63,7 +63,7 @@ Command															|	Explanation
 ----------------------------------------------------------------|---------------------------------------------
 git --version													|	Find the version of Git Client
 git config --global user.name "Zikzak Jack"						|	Configure the User Name
-git config --global user.email "zikzakjack@gmail.com"			|	Configure the Email
+git config --global user.email "zikzakjack@abc-mail.com"		|	Configure the Email
 git config --global --list										|	List the current Configuration
 git clone https://github.com/zikzakjack/spring-boot-intro.git	|	Clone a repository into a new directory
 git-status														|	Show the working tree status
