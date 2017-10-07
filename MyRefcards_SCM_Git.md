@@ -10,7 +10,9 @@
 4. [Git Basic Commands](#Git-Basic-Commands)
 
 
-## A Short History of Git <a name="A-Short-History-of-Git"></a>
+<a name="A-Short-History-of-Git"></a>
+
+## A Short History of Git
 
 Linus Torvalds and Linux development community together developed GIT. Some of the goals of git are as follows
 
@@ -20,7 +22,9 @@ Linus Torvalds and Linux development community together developed GIT. Some of t
 - Fully distributed
 - Able to handle large projects like the Linux kernel efficiently (speed and data size)
 
-## Git Basics <a name="Git-Basics"></a>
+<a name="Git-Basics"></a>
+
+## Git Basics
 
 - Other VCS stores data as changes to base version of each file
 - Git stores data like a set of snapshots of a miniature filesystem
@@ -29,7 +33,9 @@ Linus Torvalds and Linux development community together developed GIT. Some of t
 - Git generally adds data
 
 
-## Three states of Git <a name="Three-states-of-Git"></a>
+<a name="Three-states-of-Git"></a>
+
+## Three states of Git
 
 Git has three main states that your files can reside in: committed, modified, and staged.
 
@@ -48,7 +54,10 @@ The basic Git workflow goes something like this:
 2. You stage the files, adding snapshots of them to your staging area.
 3. You do a commit, which takes the files as they are in the staging
 
-## Github Project Setup <a name="Github-Project-Setup"></a>
+
+<a name="Github-Project-Setup"></a>
+
+## Github Project Setup
 
 Command															|	Explanation	
 ----------------------------------------------------------------|---------------------------------------------
@@ -64,8 +73,9 @@ git-add <filename>												|	Add file contents to the staging area index
 git commit -m "Commit Message"									|	Commit changes to the local repository
 git-push origin master											|	Push the changes to the Remote respository. origin refers to copy of local repo. master refers to the name of the branch.
 
+<a name="Git-Basic-Commands"></a>
 
-## Git Basic Commands <a name="Git-Basic-Commands"></a>
+## Git Basic Commands
 
 Command															|	Explanation	
 ----------------------------------------------------------------|---------------------------------------------
