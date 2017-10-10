@@ -66,12 +66,12 @@ git config --global user.name "Zikzak Jack"						|	Configure the User Name
 git config --global user.email "zikzakjack@abc-mail.com"		|	Configure the Email
 git config --global --list										|	List the current Configuration
 git clone https://github.com/zikzakjack/spring-boot-intro.git	|	Clone a repository into a new directory
-git-status														|	Show the working tree status
-git-status -s													|	Show the status in short format
-git-status -sb													|	Show the branch and tracking info even in short-format.
-git-add <filename>												|	Add file contents to the staging area index
+git status														|	Show the working tree status
+git status -s													|	Show the status in short format
+git status -sb													|	Show the branch and tracking info even in short-format.
+git add <filename>												|	Add file contents to the staging area index
 git commit -m "Commit Message"									|	Commit changes to the local repository
-git-push origin master											|	Push the changes to the Remote respository. origin refers to copy of local repo. master refers to the name of the branch.
+git push origin master											|	Push the changes to the Remote respository. origin refers to copy of local repo. master refers to the name of the branch.
 
 <a name="Git-Basic-Commands"></a>
 
