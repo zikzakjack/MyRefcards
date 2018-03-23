@@ -29,4 +29,11 @@
 
 	%KAFKA_HOME%/bin/windows/kafka-topics --zookeeper localhost:2181 --describe --topic zikzakjack_raw_input_position
 
+## Console Producer
+
+	%KAFKA_HOME%/bin/windows/kafka-console-producer --broker-list localhost:9092 --topic zikzakjack_raw_input_position
+
+## Console Consumer
+
+	%KAFKA_HOME%/bin/windows/kafka-console-consumer --bootstrap-server localhost:9092 --topic zikzakjack_raw_input_position --from-beginning
 
