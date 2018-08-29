@@ -47,7 +47,7 @@ This leads us to the three main sections of a Git project: the Git directory, th
 
 - The Git directory is where Git stores the metadata and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer.
 - The working directory is a single checkout of one version of the project.These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.
-- The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit. Itís sometimes referred to as the ìindexî, but itís also common to refer to it as the staging area.
+- The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit. It‚Äôs sometimes referred to as the ‚Äúindex‚Äù, but it‚Äôs also common to refer to it as the staging area.
 
 The basic Git workflow goes something like this:
 1. You modify files in your working directory.
@@ -214,7 +214,6 @@ git config --global alias.unstage 'reset HEAD --'
 git config --global alias.last 'log -1 HEAD'
 
 ## Git Branching
-
 
 
 
