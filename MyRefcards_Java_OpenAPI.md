@@ -10,14 +10,14 @@
 6. [yaml Crash Course](https://learnxinyminutes.com/docs/yaml/)
 7. [Online YAML Validator](http://www.yamllint.com/)
 
-## HTTP
+# HTTP
 
 - request methods
 - status codes
 - idempotent
 - method cheatsheet
 
-### HTTP Status Codes
+## HTTP Status Codes
 
 - 100 series are informational in nature
 - 200 series indicate successful request
@@ -25,7 +25,7 @@
 - 400 series are client errors
 - 500 series are server side errors
 
-### Common HTTP Status Codes
+## Common HTTP Status Codes
 - 200 OK
 - 201 CREATED
 - 204 ACCEPTED
@@ -35,3 +35,23 @@
 - 404 NOT FOUND
 - 500 INTERNAL SERVER ERROR
 - 503 SERVICE UNAVAILABLE
+
+# OpenAPI Overview
+
+# Defining a service with OpenAPI 
+
+# OpenAPI Schema
+
+# OpenAPI Components
+
+# OpenAPI Parameters
+
+# OpenAPI Requests
+
+# OpenAPI Security Definitions
+
+# OpenAPI CodeGen
+
+# OpenAPI Tools
+
+# OpenAPI Spring Integration
