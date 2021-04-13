@@ -6,6 +6,9 @@
 2. [The OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification)
 3. [https://swagger.io/](https://swagger.io/)
 4. [OpenAPI 3.0 Tutorial](https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html)
+5. [yaml](https://yaml.org/)
+6. [yaml Crash Course](https://learnxinyminutes.com/docs/yaml/)
+7. [Online YAML Validator](http://www.yamllint.com/)
 
 ## HTTP
 
