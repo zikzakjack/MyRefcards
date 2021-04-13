@@ -10,6 +10,7 @@ I intend to use this repo to archive my refcards which would be frequently used 
 5. [BigData - Kafka](MyRefcards_BigData_Kafka.md)
 6. [Java - JPA](MyRefcards_Java_JPA.md)
 7. [Java - Spring](MyRefcards_Java_Spring.md)
+7. [Java - OpenAPI](MyRefcards_Java_OpenAPI.md)
 
 Wiki Tips : 
 
